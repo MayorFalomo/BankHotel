@@ -81,6 +81,9 @@
     body {
       @apply bg-background text-foreground;
       font-family: "Miracle";
+      width: 100vw;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
     img{
       width: 100%;

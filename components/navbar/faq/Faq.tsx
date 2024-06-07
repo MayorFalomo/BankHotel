@@ -4,7 +4,7 @@ type Props = {};
 
 const Faq = (props: Props) => {
   return (
-    <div className="bg-off-white font-helvetica border-2 border-transparent border-solid">
+    <div className="bg-off-white font-helvetica border-2 border-transparent pb-[80px]  border-solid">
       <div className=" flex items-center justify-between gap-[10px] w-[95%] h-[100vh]  mx-auto">
         <div className="w-[100px]">
           <img src="./button_down.png" alt="img" />
@@ -29,7 +29,7 @@ const Faq = (props: Props) => {
         </div>
       </div>
       <div className="w-[95%] mx-auto">
-        <div className="flex flex-col gap-[20px] items-start w-full">
+        <div className="flex flex-col gap-[30px] items-start w-full">
           <div className="flex justify-between items-center w-full border-b-2 pb-[25px] gap-[10px]">
             <div className="w-[250px]">
               <img src="./white_exterior.png" alt="img" />
@@ -40,7 +40,7 @@ const Faq = (props: Props) => {
             <h3 className="scroll-m-20 text-4xl font-miracle font-normal tracking-[.10em]">
               Conference Hall{" "}
             </h3>
-            <span>
+            <span className="cursor-pointer">
               <svg
                 width="93"
                 height="42"
@@ -76,7 +76,7 @@ const Faq = (props: Props) => {
             <h3 className="scroll-m-20 text-4xl font-miracle font-normal tracking-[.10em]">
               Wine Bar "Reserve"{" "}
             </h3>
-            <span>
+            <span className="cursor-pointer">
               <svg
                 width="93"
                 height="42"

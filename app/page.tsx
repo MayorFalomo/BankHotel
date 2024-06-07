@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar/Navbar";
+import BestApartments from "@/components/navbar/bestApartments/BestApartments";
 import Faq from "@/components/navbar/faq/Faq";
 import HeroHeader from "@/components/navbar/heroHeader/HeroHeader";
 import HeroImage from "@/components/navbar/heroImage/HeroImage";
@@ -17,6 +18,7 @@ export default function Home() {
       <Home_Slider />
       <Facilities />
       <Faq />
+      <BestApartments />
     </div>
   );
 }
