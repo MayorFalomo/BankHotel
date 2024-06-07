@@ -24,6 +24,7 @@ const config = {
         "white_text": "#fff",
         "golden_yellow": "rgba(252, 208, 67, 1)",
         "text_royal_green": "#1B3B36",
+        "off-white": "#FFFCF6",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -62,7 +63,7 @@ const config = {
     
        fontFamily: {
          'miracle': ['miracle', 'sans-serif'],
-         'helvetica': ['helvetica', 'sans-serif']
+         'helvetica': ['helvetica']
       },
       borderRadius: {
         lg: "var(--radius)",

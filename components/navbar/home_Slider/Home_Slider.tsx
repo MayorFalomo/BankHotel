@@ -5,8 +5,8 @@ type Props = {};
 
 function Home_Slider({}: Props) {
   return (
-    <div>
-      <div className="mt-[100px]">
+    <div className="bg-off-white border-2 border-transparent border-solid">
+      <div className="h-full my-[100px]">
         <div className="flex justify-between items-start gap-[20px] mx-auto w-[95%]">
           <h1 className="text-start text-text_royal_green font-miracle scroll-m-20 text-4xl font-extrabold tracking-[.10em] lg:text-8xl">
             <span> ROOMS </span> <span className="block"> & APARTMENTS </span>
@@ -49,12 +49,13 @@ function Home_Slider({}: Props) {
                 </p>
               </section>
             </div>
-            <div className="w-[40%] max-w-[500px]">
+            <div className="w-[40%] max-w-[600px]">
               <img src="./room-image.png" alt="img" />
             </div>
           </div>
         </div>
       </div>
+      <div className="w-[95%] mx-auto opacity-10 h-[1px] bg-[#313F38] "></div>
     </div>
   );
 }

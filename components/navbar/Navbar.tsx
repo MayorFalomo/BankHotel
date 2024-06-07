@@ -7,7 +7,7 @@ const Navbar = () => {
         <h2 className="scroll-m-20  text-3xl font-semibold tracking-tight first:mt-0">
           BankHotel
         </h2>
-        <ul className="flex items-center justify-between gap-[10px] font-helvetica my-6 ml-6 list-none [&>li]:mt-2">
+        <ul className="flex items-center justify-around gap-[7px] w-[50%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2">
           <li>HOME</li>
           <li>ABOUT</li>
           <li>ROOMS</li>

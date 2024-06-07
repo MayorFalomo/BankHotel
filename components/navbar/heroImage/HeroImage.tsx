@@ -22,11 +22,15 @@ function HeroImage({}: Props) {
           </button>
         </div>
         <div className="flex items-center justify-between gap-3 mt-[20px] text-white_text font-helvetica ">
-          <p className="leading-7 ">+234 781 52 952</p>
+          <p className="leading-7 text-golden_yellow underline underline-offset-1">
+            +234 781 52 952
+          </p>
           <p className="leading-7 ">ART & CONGRESS </p>
         </div>
         <div className="flex items-center justify-between gap-3 text-white_text font-helvetica ">
-          <p className="leading-7 ">6A - ANTHONY HOROWITZ WAY, LEKKI </p>
+          <p className="leading-7 underline underline-offset-1 ">
+            6A - ANTHONY HOROWITZ WAY, LEKKI{" "}
+          </p>
           <p className="leading-7">HALL</p>
         </div>
       </div>

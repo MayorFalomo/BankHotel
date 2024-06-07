@@ -11,7 +11,7 @@ const About_us = (props: Props) => {
             <div className="relative w-full h-full">
               <div className="flex h-full gap-[30px] items-end">
                 <img
-                  className="w-[40%] mt-[20px] h-full relative z-[1]"
+                  className="w-[40%] mt-[40px] h-full relative z-[1]"
                   src="./bigger-copenhagen.png"
                   alt="img"
                 />
@@ -28,7 +28,7 @@ const About_us = (props: Props) => {
                   </p>
                 </div>
               </div>
-              <div className="absolute top-[-20px] left-[0px] w-[90%] z-[-1px] ">
+              <div className="absolute top-[-20px] left-[-20px] w-[90%] z-[-1px] ">
                 <img src="./Ellipse.png" alt="img" />
               </div>
             </div>
@@ -42,12 +42,12 @@ const About_us = (props: Props) => {
             </div>
             <div className="relative">
               <img
-                className="mt-[20px]"
+                className="mt-[40px]"
                 src="./space-copenhagen.png"
                 alt="img"
               />
-              <div className="absolute h-[100%] w-[1px] bg-[#3F5148] top-0 left-[-125px]"></div>
-              <div className="absolute w-[50px] top-[-20px] left-[-45px]">
+              <div className="absolute h-[100%] w-[1px] bg-[#3F5148] top-0 left-[-150px]"></div>
+              <div className="absolute w-[50px] top-[0px] left-[-45px]">
                 <img src="./label.png" alt="img" />
               </div>
               <div className="absolute w-[120px] bottom-[20px] left-[35px]">
