@@ -37,7 +37,7 @@ function Home_Slider({}: Props) {
                 <h1 className="text-start text-text_royal_green scroll-m-20 text-2xl font-semibold tracking-tight">
                   Superior Twin
                 </h1>
-                <p className="leading-7 text-text_royal_green  [&:not(:first-child)]:mt-2">
+                <p className="leading-7 text-text_royal_green font-helvetica  [&:not(:first-child)]:mt-2">
                   The Superior twin is perfect for those who plan to stay long.
                   The spacious and bright room is equipped with deluxe Italian
                   furniture and has a beautiful view to the historical part of

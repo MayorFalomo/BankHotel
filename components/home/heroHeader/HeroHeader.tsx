@@ -7,8 +7,8 @@ const HeroHeader = () => {
   return (
     <div className="font-helvetica bg-[#313F38]">
       <div className="flex justify-between items-center gap-[30px] w-[95%] m-auto text-white">
-        <div className="flex flex-col w-full ">
-          <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid lg:text-[150px]">
+        <div className="flex flex-col gap-[20px] w-full ">
+          <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] xl:text-[120px]  lg:text-[100px] ">
             Bank <span className="font-miracle text-golden_yellow">Hotel </span>{" "}
           </h1>
           <ul className="flex text-white-100 gap-[10px] text-golden_yellow font-helvetica my-6 list-none [&>li]:mt-2">

@@ -14,7 +14,9 @@ function HeroImage({}: Props) {
           <button className="flex items-center justify-around gap-[10px] w-[200px] h-[90px] text-white_text  bg-hero-btn backdrop-blur-[20px] opacity-[0.9]">
             CHECK IN <span>{<FaAngleDown />} </span>{" "}
           </button>
-          <button className="flex justify-around items-center gap-[10px] w-[200px] h-[90px] text-white_text bg-hero-btn backdrop-blur-[20px] opacity-[0.9] border-gray-500 border-l-2">
+          <span className="h-[30px] w-[1px] bg-white opacity-[0.4]"></span>
+
+          <button className="flex justify-around items-center gap-[10px] w-[200px] h-[90px] text-white_text bg-hero-btn backdrop-blur-[20px] opacity-[0.9]">
             CHECK OUT <span>{<FaAngleDown />}</span>{" "}
           </button>
           <button className="flex items-center justify-around gap-[10px] w-[250px] h-[90px] bg-golden_yellow backdrop-blur-[20px] opacity-[0.9]">

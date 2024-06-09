@@ -8,7 +8,7 @@ function Facilities({}: Props) {
     <div className="bg-off-white w-[100%] border-2 border-transparent border-solid ">
       <div className="mt-[100px] ">
         <div className="flex justify-between items-start gap-[20px] mx-auto w-[95%] ">
-          <p className="flex flex-col gap-[5px]">
+          <p className="flex flex-col font-helvetica gap-[5px]">
             <span>ART & CONGRESS</span> <span>HALL </span>{" "}
           </p>
           <div className="font-miracle w-[520px] max-w-[520px]">
@@ -41,7 +41,7 @@ function Facilities({}: Props) {
           <div className="w-[400px]">
             <img src="./kitchen.png" alt="img" />
           </div>
-          <p className="w-[300px] text-text_royal_green">
+          <p className="w-[300px] font-helvetica text-text_royal_green">
             Bank Hotel offers you a wide range of additional services and
             facilities. Visit our restaurant to try exclusive meals, book a
             conference hall to organize a business meeting, or relax in the
