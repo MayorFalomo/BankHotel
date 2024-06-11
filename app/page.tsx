@@ -31,7 +31,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="">
+    <div className="w-[100%]">
       <Navbar />
       <HeroHeader />
       <HeroImage />

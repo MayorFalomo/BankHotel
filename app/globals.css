@@ -81,10 +81,10 @@
     body {
       @apply bg-background text-foreground;
       font-family: "Miracle";
-      width: 100vw;
-      max-width: 100%;
+      width: 100vw !important;
+      max-width: 100vw;
       min-height: 100vh;
-      overflow-x: hidden;
+      overflow-x: hidden !important;
       scroll-behavior: smooth;
     }
     img{

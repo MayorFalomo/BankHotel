@@ -6,7 +6,7 @@ type Props = {};
 const Footer: React.FC = (props: Props) => {
   return (
     <footer className="bg-off-white border-[1px] border-transparent  font-helvetica">
-      <div className="w-[65%]  pb-[50px] flex items-start justify-around">
+      <div className="w-[65%]  pb-[50px] flex items-start justify-around flex-wrap">
         <div className="flex flex-col items-start gap-[10px]">
           <h3 className="text-xl">ABOUT US</h3>
           <p className="leading-6 w-[280px]">

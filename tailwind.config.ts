@@ -15,6 +15,7 @@ const config = {
       padding: "2rem",
       screens: {
         "2xl": "1400px",
+        '900xl': '900px',
       },
     },
     extend: {

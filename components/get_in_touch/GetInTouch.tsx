@@ -18,15 +18,15 @@ const GetInTouch = (props: Props) => {
           </p>
         </div>
         <div className="relative h-[90vh]   ">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[950px] ">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 xl:w-[950px] md:w-[650px] max-[650px]:max-w-[500px] ">
             <div className="flex items-center gap-[15px] ">
-              <h1 className="text-[150px] text-text_royal_green font-miracle">
+              <h1 className="2xl:text-[150px] lg:text-[120px] sm:text-[100px] text-[100px] text-text_royal_green font-miracle">
                 GET IN{" "}
               </h1>
               <img className="w-[80px]" src="./Star.svg" alt="img" />
             </div>
 
-            <h1 className="text-[150px] leading-[1] relative z-[1] text-end text-golden_yellow font-miracle">
+            <h1 className="2xl:text-[150px] lg:text-[120px] sm:text-[100px] text-[100px] relative z-[1] text-end text-golden_yellow font-miracle">
               TOUCH{" "}
             </h1>
 
@@ -35,7 +35,7 @@ const GetInTouch = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="mb-[70px]">
+        <div className="mb-[70px] hidden md:block">
           <p className="leading-7 font-helvetica">FIND A ROOM </p>
           <div className="flex items-center mt-[25px] w-fit border-2 border-black-800  font-helvetica">
             <button className="flex items-center justify-around gap-[10px] w-[150px] h-[70px] text-#000 ">
