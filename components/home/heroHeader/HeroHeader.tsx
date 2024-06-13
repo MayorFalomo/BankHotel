@@ -6,12 +6,12 @@ import { TbNorthStar } from "react-icons/tb";
 const HeroHeader = () => {
   return (
     <div className="font-helvetica bg-[#313F38]">
-      <div className="flex justify-between items-center gap-[30px] w-[95%] m-auto text-white max-[900px]:items-start max-[680px]:flex-col">
+      <div className="flex justify-between items-center gap-[30px] w-[95%] m-auto text-white max-[900px]:items-start max-[760px]:flex-col">
         <div className="flex flex-col gap-[20px] w-full ">
-          <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] text-[100px]">
+          <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] max-[760px]:justify-center text-[70px]">
             Bank <span className="font-miracle text-golden_yellow">Hotel </span>{" "}
           </h1>
-          <ul className="flex items-center text-white-100 gap-[7px] text-golden_yellow font-helvetica my-6 list-none [&>li]:mt-2 text-[17px] max-sm:text-[15px] md:text-[16px] ">
+          <ul className="flex items-center text-white-100 gap-[7px] text-golden_yellow font-helvetica my-6 list-none [&>li]:mt-2 text-[17px] max-sm:text-[15px] md:text-[16px] max-[760px]:flex-wrap max-[760px]:justify-center">
             <li>ROOMS //</li>
             <li>RESTAURANT //</li>
             <li>CONGRESS HALL //</li>
@@ -30,7 +30,7 @@ const HeroHeader = () => {
               <img src="/wavy.png" alt="img" />
             </div>
           </div>
-          <p className="font-helvetica tracking-[.05em] xl:w-[50%] max-md:w-[100%] max-[800px]:w-[100%] ">
+          <p className="font-helvetica tracking-[.05em] xl:w-[50%] max-md:w-[100%] max-[800px]:w-[100%] max-[760px]:text-center max-[900px]:ml-[5px]">
             The luxurious hotel in the most beautiful European city with an
             exclusive restaurant, conference-hall, and art-bar.{" "}
           </p>
