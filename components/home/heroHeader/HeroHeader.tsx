@@ -5,7 +5,7 @@ import { TbNorthStar } from "react-icons/tb";
 
 const HeroHeader = () => {
   return (
-    <div className="font-helvetica bg-[#313F38]">
+    <div className="font-helvetica w-full bg-[#313F38]">
       <div className="flex justify-between items-center gap-[30px] w-[95%] m-auto text-white max-[900px]:items-start max-[760px]:flex-col">
         <div className="flex flex-col gap-[20px] w-full ">
           <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] max-[760px]:justify-center text-[70px]">
