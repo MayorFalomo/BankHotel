@@ -34,10 +34,10 @@ const About_us = (props: Props) => {
               </div> */}
             </div>
             <div className="flex flex-col  font-miracle absolute z-10 top-1/3 max-[750px]:left-[50%]  md:left-[70%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-[750px]:flex max-[750px]:flex-row  max-[750px]:gap-[25px] max-[750px]:top-[-10px] ">
-              <h1 className="min-[900px]:text-[80px] xl:text-[100px] sm:text-[70px] max-sm:text-[70px]  scroll-m-20  font-extrabold tracking-[.10em]  text-golden_yellow">
+              <h1 className="min-[900px]:text-[80px] xl:text-[100px] sm:text-[70px] max-sm:text-[60px]  scroll-m-20  font-extrabold tracking-[.10em]  text-golden_yellow">
                 ABOUT
               </h1>
-              <h1 className="lg:text-[100px] sm:text-[70px] max-sm:text-[70px]  text-end text-white_text scroll-m-20 font-extrabold tracking-[.10em]">
+              <h1 className="lg:text-[100px] sm:text-[70px] max-sm:text-[60px]  text-end text-white_text scroll-m-20 font-extrabold tracking-[.10em]">
                 US
               </h1>
             </div>

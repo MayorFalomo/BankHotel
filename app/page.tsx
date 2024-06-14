@@ -13,6 +13,7 @@ import Home_Slider from "@/components/home/home_Slider/Home_Slider";
 import About_us from "@/components/home/home_about_us/About_us";
 import Image from "next/image";
 import Lenis from "lenis";
+import FadeIn from "@/components/animation/FadeIn";
 
 export default function Home() {
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-[100%] overflow-x-hidden">
+    <FadeIn>
       <Navbar />
       <HeroHeader />
       <HeroImage />
@@ -43,6 +44,6 @@ export default function Home() {
       <Gallery />
       <GetInTouch />
       <Footer />
-    </div>
+    </FadeIn>
   );
 }
