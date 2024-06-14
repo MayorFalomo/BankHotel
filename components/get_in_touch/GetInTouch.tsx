@@ -8,29 +8,33 @@ const GetInTouch = (props: Props) => {
     <div className="bg-off-white relative border-[1px] border-transparent h-full">
       <div className="w-[95%] my-[100px] mx-auto">
         <div className="flex flex-col justify-between gap-[10px] w-[90%]">
-          <h2 className="leading-8 scroll-m-5 text-4xl underline text-text_royal_green font-helvetica">
+          <h2 className="leading-8 scroll-m-5 xl:text-4xl lg:text-[30px] md:text-[28px] sm:text-[24px] text-[20px] underline text-text_royal_green font-helvetica">
             {" "}
             +234 781 52 952{" "}
           </h2>
-          <p className="flex flex-col relative z-10 items-end gap-[5px] text-xl font-helvetica">
+          <p className="flex flex-col relative z-10 items-end gap-[3px] lg:text-xl sm:text-[18px] text-[16px] font-helvetica">
             <span>8 VICTORIA ISLAND </span>
             <span>Lagos, Nigeria </span>
           </p>
         </div>
-        <div className="relative h-[90vh]   ">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 xl:w-[950px] md:w-[650px] max-[650px]:max-w-[500px] ">
-            <div className="flex items-center gap-[15px] ">
-              <h1 className="2xl:text-[150px] lg:text-[120px] sm:text-[100px] text-[100px] text-text_royal_green font-miracle">
+        <div className="relative h-[90vh] max-[780px]:h-[60vh]   ">
+          <div className="absolute top-1/2  left-1/2 transform -translate-x-1/2 -translate-y-1/2 xl:w-[950px] min-[780px]:w-[750px] max-[780px]:w-full ">
+            <div className="relative flex items-center gap-[15px] ">
+              <h1 className="xl:text-[150px] lg:text-[120px] sm:text-[100px] text-[80px] max-[480px]:text-[70px] text-text_royal_green font-miracle">
                 GET IN{" "}
               </h1>
-              <img className="w-[80px]" src="./Star.svg" alt="img" />
+              <img
+                className="md:w-[80px] sm:w-[70px] w-[40px] max-[480px]:w-[30px]"
+                src="./Star.svg"
+                alt="img"
+              />
             </div>
 
-            <h1 className="2xl:text-[150px] lg:text-[120px] sm:text-[100px] text-[100px] relative z-[1] text-end text-golden_yellow font-miracle">
+            <h1 className="2xl:text-[150px] lg:text-[120px] sm:text-[100px] text-[80px] max-[480px]:text-[70px] relative z-[1] text-end text-golden_yellow font-miracle">
               TOUCH{" "}
             </h1>
 
-            <div className="absolute top-[50px] right-0 z-[-1px]">
+            <div className="absolute min-[780px]:top-[50px] max-[780px]:bottom-[-180px] right-0  z-[-1px] max-sm:w-[200px]">
               <img src="./chair.png" alt="img" />
             </div>
           </div>
@@ -50,11 +54,16 @@ const GetInTouch = (props: Props) => {
             </button>
           </div>
         </div>
-        <div className="h-[1px] w-full bg-gray-200"> </div>
+        <div className="h-[1px] w-full bg-gray-200 hidden md:block"> </div>
       </div>
       <img
-        className="absolute z-5 top-[37%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
+        className="absolute z-5 min-[780px]:top-[37%] max-[780px]:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 "
         src="./vector16.svg"
+        alt="img"
+      />
+      <img
+        className="flex md:hidden absolute z-5  max-[780px]:bottom-[50px] left-[10px] w-[80px] "
+        src="./coloured_wavy_btn.png"
         alt="img"
       />
     </div>

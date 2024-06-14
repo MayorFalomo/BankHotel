@@ -30,7 +30,7 @@ const Navbar = () => {
           <span className="mt-[24px] cursor-pointer min-[1200px]:hidden">
             <svg viewBox="0 0 100 80" width="40" height="40">
               <rect className="fill-white" width="200" height="5"></rect>
-              <rect className="fill-white" y="20" width="200" height="5"></rect>
+              <rect className="fill-white" y="25" width="200" height="5"></rect>
               {/* <rect y="60" width="100" height="20"></rect> */}
             </svg>
           </span>
