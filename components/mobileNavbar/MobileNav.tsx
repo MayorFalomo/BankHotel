@@ -18,7 +18,7 @@ interface Variants {
 }
 
 const MobileNav = (props: MenuState) => {
-  const [navLinks, setNavLinks] = useState([
+  const [navLinks, setNavLinks] = useState<Nav[]>([
     {
       name: "Home",
       link: "#",
@@ -45,7 +45,7 @@ const MobileNav = (props: MenuState) => {
     },
   ]);
 
-  const menuLinks = {
+  const menuLinks: Variants = {
     initial: {
       scaleY: 0,
     },
@@ -53,15 +53,17 @@ const MobileNav = (props: MenuState) => {
       scaleY: 1,
       transition: {
         duration: 0.2,
-        ease: [0.12, 0, 0.39, 0],
+        ease: [0.6, -0.05, 0.01, 0.99],
+        // ease: [0.12, 0, 0.39, 0],
       },
     },
     exit: {
       scaleY: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.7,
         delay: 0.5,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.6, -0.05, 0.01, 0.99],
+        // ease: [0.22, 1, 0.36, 1],
       },
     },
   };
@@ -89,16 +91,16 @@ const MobileNav = (props: MenuState) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className="fixed top-[0px] left-0 z-20 h-full w-full origin-top bg-regal_green"
+        className="fixed top-[0px] left-0 z-20 h-full w-full origin-top bg-regal_green min-[1200px]:hidden max-[1200px]:block"
       >
-        <div className="flex flex-col items-start justify-around h-full gap-[20px] ">
+        <div className="flex flex-col items-start justify-between h-full gap-[20px] ">
           <div className="flex items-center justify-between  w-[95%] mx-auto ">
             <p className="text-[28px] w-full font-semibold tracking-tight first:mt-2">
               BankHotel
             </p>
             <p
               onClick={() => props.setMenuState((prev) => !prev)}
-              className="text-[25px] cursor-pointer"
+              className="text-[25px] cursor-pointer min-[1200px]:hidden max-[1200px]:block"
             >
               <svg
                 height="72"
@@ -123,14 +125,14 @@ const MobileNav = (props: MenuState) => {
           <motion.div
             variants={containerVars}
             initial="initial"
-            animate="animate"
+            animate="open"
             exit="initial"
             className="flex flex-col items-start w-[95%] mx-auto  justify-around gap-[15px] list-none [&>li]:mt-2"
           >
-            {navLinks.map((nav: any, index: number) => {
+            {navLinks.map((nav: any, i: number) => {
               return (
-                <div className="overflow-hidden" key={index}>
-                  <MobileLinks index={index} nav={nav} />
+                <div className="overflow-hidden" key={i}>
+                  <MobileLinks nav={nav} />
                 </div>
               );
             })}
@@ -144,7 +146,7 @@ const MobileNav = (props: MenuState) => {
           <li className="cursor-pointer">CONTACTS</li> */}
           </motion.div>
           <div className="flex flex-col  w-full items-center gap-[20px]">
-            <p className="font-helvetica text-center [&:not(:first-child)]:mt-2 sm:hidden min-[1200px]:text-[30px] min-[800px]:text-[27px] min-[500px]:text-[24px] max-[500px]:text-[20px] ">
+            <p className="font-helvetica text-center [&:not(:first-child)]:mt-2 min-[1200px]:text-[30px] min-[800px]:text-[27px] min-[500px]:text-[24px] max-[500px]:text-[20px] ">
               {" "}
               +234 781 52 952{" "}
             </p>
@@ -168,7 +170,8 @@ const mobileLinkVars = {
     y: "30vh",
     transition: {
       duration: 0.5,
-      ease: [0.37, 0, 0.63, 1],
+      ease: [0.6, -0.05, 0.01, 0.99],
+      //   ease: [0.37, 0, 0.63, 1],
     },
   },
   open: {
@@ -180,7 +183,7 @@ const mobileLinkVars = {
   },
 };
 
-const MobileLinks = ({ nav }: any) => {
+const MobileLinks = ({ nav }: { nav: Nav }) => {
   return (
     <motion.ul className="flex items-center gap-[20px] mx-auto min-[1200px]:text-[30px] min-[800px]:text-[27px] min-[500px]:text-[24px] max-[500px]:text-[27px] font-helvetica ">
       <motion.li
