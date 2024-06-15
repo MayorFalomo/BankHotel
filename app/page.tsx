@@ -19,9 +19,9 @@ export default function Home() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => {
-        return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
-      },
+      // easing: (t) => {
+      //   return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
+      // },
       // easing: function (t) {
       //   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
       // },
