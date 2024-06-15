@@ -1,6 +1,6 @@
 import SplitText from "@/components/animation/SplitText";
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { ReactNode, useRef } from "react";
 import { GiGooeyEyedSun } from "react-icons/gi";
 import { TbNorthStar } from "react-icons/tb";
 import { motion, Variant } from "framer-motion";
@@ -41,8 +41,8 @@ const HeroHeader = () => {
 
   const heroHeader = ["Bank", "Hotel"];
 
-  const getChars: (title: string) => void = (title: string) => {
-    let chars: any = [];
+  const getChars: (title: string) => ReactNode = (title: string) => {
+    let chars: ReactNode[] = [];
     title.split("").forEach((char: string, index: number) => {
       chars.push(
         <motion.span
