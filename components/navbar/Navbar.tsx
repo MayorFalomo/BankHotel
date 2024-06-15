@@ -14,7 +14,7 @@ const Navbar = () => {
           BankHotel
         </h2>
         <ul className="flex items-center justify-around gap-[15px] w-[50%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
-          <li className="cursor-pointer">HOME</li>
+          <li className="cursor-pointer hover:text-golden_yellow">HOME</li>
           <li className="cursor-pointer">ABOUT</li>
           <li className="cursor-pointer">ROOMS</li>
           <li className="cursor-pointer">RESTAURANT</li>

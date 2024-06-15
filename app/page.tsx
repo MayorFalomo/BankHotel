@@ -14,46 +14,24 @@ import About_us from "@/components/home/home_about_us/About_us";
 import Image from "next/image";
 import Lenis from "lenis";
 import FadeIn from "@/components/animation/FadeIn";
+import SmoothScroll from "@/components/animation/SmoothScroll";
 
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      // easing: (t) => {
-      //   return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * --t * t * t * t;
-      // },
-      // easing: function (t) {
-      //   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-      // },
-
-      // direction: "vertical",
-      // gestureDirection: "vertical",
-      // smooth: true,
-      // smoothTouch: false,
-      touchMultiplier: 2,
-    });
-
-    function raf(time: any) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
-
   return (
     <FadeIn>
-      <Navbar />
-      <HeroHeader />
-      <HeroImage />
-      <About_us />
-      <Home_Slider />
-      <Facilities />
-      <Faq />
-      <BestApartments />
-      <Gallery />
-      <GetInTouch />
-      <Footer />
+      <SmoothScroll>
+        <Navbar />
+        <HeroHeader />
+        <HeroImage />
+        <About_us />
+        <Home_Slider />
+        <Facilities />
+        <Faq />
+        <BestApartments />
+        <Gallery />
+        <GetInTouch />
+        <Footer />
+      </SmoothScroll>
     </FadeIn>
   );
 }
