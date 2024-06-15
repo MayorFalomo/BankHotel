@@ -17,10 +17,17 @@ import FadeIn from "@/components/animation/FadeIn";
 
 export default function Home() {
   useEffect(() => {
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: function (t) {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      },
 
-    lenis.on("scroll", (e: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(e);
+      // direction: "vertical",
+      // gestureDirection: "vertical",
+      // smooth: true,
+      // smoothTouch: false,
+      touchMultiplier: 2,
     });
 
     function raf(time: any) {

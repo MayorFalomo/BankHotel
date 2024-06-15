@@ -2,9 +2,10 @@
 import React, { memo, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
+import MobileNav from "../mobileNavbar/MobileNav";
 
 const Navbar = () => {
-  const [menuState, setMenuState] = useState<Boolean>(false);
+  const [menuState, setMenuState] = useState<boolean>(false);
 
   return (
     <nav className="bg-[#313F38] pb-1 text-white">
@@ -25,17 +26,44 @@ const Navbar = () => {
           +234 781 52 952{" "}
         </p>
         {menuState ? (
-          <span className="text-[25px] cursor-pointer"> {<FaXmark />} </span>
+          <span
+            onClick={() => setMenuState((prev) => !prev)}
+            className="text-[25px] cursor-pointer"
+          >
+            <svg
+              height="72"
+              viewBox="0 0 21 21"
+              width="60"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="white"
+                fill-rule="evenodd"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m7.5 7.5 6 6" />
+                <path d="m13.5 7.5-6 6" />
+              </g>
+            </svg>
+          </span>
         ) : (
-          <span className="mt-[24px] cursor-pointer min-[1200px]:hidden">
+          <span
+            onClick={() => setMenuState((prev) => !prev)}
+            className="mt-[24px] cursor-pointer min-[1200px]:hidden"
+          >
             <svg viewBox="0 0 100 80" width="40" height="40">
               <rect className="fill-white" width="200" height="5"></rect>
               <rect className="fill-white" y="25" width="200" height="5"></rect>
-              {/* <rect y="60" width="100" height="20"></rect> */}
             </svg>
           </span>
         )}
       </div>
+
+      {menuState && (
+        <MobileNav menuState={menuState} setMenuState={setMenuState} />
+      )}
     </nav>
   );
 };

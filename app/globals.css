@@ -75,7 +75,9 @@
   @layer base {
     * {
       @apply border-border;
-      
+      /* background-color: rgb(142, 112, 16) */
+      /* color: rgba(49, 63, 56, 0.48);
+      color: rgba(33, 36, 35, 0.755); */
     }
 
     body {
