@@ -10,7 +10,6 @@ const ImageReveal = ({ children }: Props) => {
   const { ref, inView, entry } = useInView({
     threshold: 0,
   });
-  console.log(inView, "inView");
 
   return (
     <motion.div

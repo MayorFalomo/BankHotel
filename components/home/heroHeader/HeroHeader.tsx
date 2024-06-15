@@ -3,15 +3,90 @@ import Image from "next/image";
 import React, { useRef } from "react";
 import { GiGooeyEyedSun } from "react-icons/gi";
 import { TbNorthStar } from "react-icons/tb";
+import { motion, Variant } from "framer-motion";
+
+interface Variants {
+  [key: string]: Variant;
+}
 
 const HeroHeader = () => {
+  const translate: Variants = {
+    initial: {
+      y: "100%",
+      opacity: 0,
+      // transition: {
+      //   duration: 0.5,
+      //   ease: [0.76, 0, 0.24, 1],
+      // },
+    },
+    enter: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.76, 0, 0.24, 1],
+        delay: i[0],
+      },
+    }),
+    exit: (i) => ({
+      y: "100%",
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.76, 0, 0.24, 1],
+        delay: i[0],
+      },
+    }),
+  };
+
+  const heroHeader = ["Bank", "Hotel"];
+
+  const getChars: (title: string) => void = (title: string) => {
+    let chars: any = [];
+    title.split("").forEach((char: string, index: number) => {
+      chars.push(
+        <motion.span
+          key={index}
+          variants={translate}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          custom={[index * 0.02, (title.length - index) * 0.01]}
+        >
+          {char}
+        </motion.span>
+      );
+    });
+    return chars;
+  };
+
   return (
     <div className="font-helvetica w-full bg-[#313F38]">
-      <div className="flex justify-between items-center gap-[30px] w-[95%] m-auto text-white max-[900px]:items-start max-[760px]:flex-col">
+      <div className="flex justify-between items-center gap-[30px] w-[95%] m-auto text-white max-[900px]:items-center max-[760px]:flex-col">
         <div className="flex flex-col gap-[20px] w-full ">
-          <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] max-[330px]:text-[50px] max-[760px]:justify-center text-[70px] ">
+          <div className="flex items-start max-[760px]:justify-center gap-1 overflow-hidden">
+            {heroHeader.map((bank: string, index) => {
+              return (
+                <h1
+                  className={
+                    `${bank}` == "Hotel"
+                      ? "font-miracle flex items-center scroll-m-20 text-golden_yellow  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] max-[330px]:text-[50px] max-[760px]:justify-center text-[70px]"
+                      : "font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] max-[330px]:text-[50px] max-[760px]:justify-center text-[70px]"
+                  }
+                  key={index}
+                >
+                  {" "}
+                  {getChars(bank)}{" "}
+                </h1>
+              );
+            })}
+          </div>
+          {/* <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] max-[330px]:text-[50px] max-[760px]:justify-center text-[70px] ">
             Bank <span className="font-miracle text-golden_yellow">Hotel </span>{" "}
-          </h1>
+          </h1> */}
+          {/* <h1 className="font-miracle flex items-center scroll-m-20 text-[#fff]  font-light -tracking-tight  border-solid 2xl:text-[150px] lg:text-[120px] sm:text-[100px] max-[330px]:text-[50px] max-[760px]:justify-center text-[70px] ">
+            Bank <span className="font-miracle text-golden_yellow">Hotel </span>{" "}
+          </h1> */}
           <ul className="flex items-center text-white-100 gap-[7px] text-golden_yellow font-helvetica my-6 list-none [&>li]:mt-2 text-[17px] max-sm:text-[15px] md:text-[16px] max-[760px]:flex-wrap max-[760px]:justify-center">
             <li>ROOMS //</li>
             <li>RESTAURANT //</li>

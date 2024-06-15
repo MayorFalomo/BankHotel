@@ -21,7 +21,7 @@ const MobileNav = (props: MenuState) => {
   const [navLinks, setNavLinks] = useState<Nav[]>([
     {
       name: "Home",
-      link: "#",
+      link: "/",
     },
     {
       name: "About",
@@ -64,6 +64,8 @@ const MobileNav = (props: MenuState) => {
         delay: 0.5,
         ease: [0.6, -0.05, 0.01, 0.99],
         // ease: [0.22, 1, 0.36, 1],
+        // duration: 1,
+        // ease: [0.76, 0, 0.24, 1],
       },
     },
   };
@@ -93,7 +95,7 @@ const MobileNav = (props: MenuState) => {
         exit="exit"
         className="fixed top-[0px] left-0 z-20 h-full w-full origin-top bg-regal_green min-[1200px]:hidden max-[1200px]:block"
       >
-        <div className="flex flex-col items-start justify-between h-full gap-[20px] ">
+        <div className="flex flex-col items-start justify-between h-full gap-[20px] pb-3 ">
           <div className="flex items-center justify-between  w-[95%] mx-auto ">
             <p className="text-[28px] w-full font-semibold tracking-tight first:mt-2">
               BankHotel
