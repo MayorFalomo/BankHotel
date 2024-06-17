@@ -32,7 +32,7 @@ const Navbar = () => {
         {menuState ? (
           <span
             onClick={() => setMenuState((prev) => !prev)}
-            className="text-[25px] cursor-pointer"
+            className="text-[25px] cursor-pointer min-[1200px]:hidden max-[1200px]:block"
           >
             <svg
               height="72"

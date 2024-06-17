@@ -53,6 +53,7 @@ const MobileNav = (props: MenuState) => {
       scaleY: 1,
       transition: {
         duration: 0.2,
+        // ease: [0.76, 0, 0.24, 1],
         ease: [0.6, -0.05, 0.01, 0.99],
         // ease: [0.12, 0, 0.39, 0],
       },
@@ -62,7 +63,7 @@ const MobileNav = (props: MenuState) => {
       transition: {
         duration: 0.7,
         delay: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        // ease: [0.6, -0.05, 0.01, 0.99],
         // ease: [0.22, 1, 0.36, 1],
         // duration: 1,
         // ease: [0.76, 0, 0.24, 1],
@@ -102,7 +103,7 @@ const MobileNav = (props: MenuState) => {
             </p>
             <p
               onClick={() => props.setMenuState((prev) => !prev)}
-              className="text-[25px] cursor-pointer min-[1200px]:hidden max-[1200px]:block"
+              className="text-[25px] cursor-pointer min-[1200px]:hidden max-[1200px]:block "
             >
               <svg
                 height="72"
@@ -123,39 +124,32 @@ const MobileNav = (props: MenuState) => {
               </svg>
             </p>
           </div>
-
-          <motion.div
-            variants={containerVars}
-            initial="initial"
-            animate="open"
-            exit="initial"
-            className="flex flex-col items-start w-[95%] mx-auto  justify-around gap-[15px] list-none [&>li]:mt-2"
-          >
-            {navLinks.map((nav: any, i: number) => {
-              return (
-                <div className="overflow-hidden" key={i}>
-                  <MobileLinks nav={nav} />
-                </div>
-              );
-            })}
-            {/* <li className="flex items-center gap-[20px] cursor-pointer">
-            HOME <img className="w-[30px]" src="./Star.svg" alt="img" />{" "}
-          </li>
-          <li className="cursor-pointer">ABOUT</li>
-          <li className="cursor-pointer">ROOMS</li>
-          <li className="cursor-pointer">RESTAURANT</li>
-          <li className="cursor-pointer">CONFERENCE HALL</li>
-          <li className="cursor-pointer">CONTACTS</li> */}
-          </motion.div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              variants={containerVars}
+              initial="initial"
+              animate="open"
+              exit="initial"
+              className="flex flex-col items-start w-[95%] mx-auto  justify-around gap-[15px] list-none [&>li]:mt-2"
+            >
+              {navLinks.map((nav: any, i: number) => {
+                return (
+                  <div className="overflow-hidden" key={i}>
+                    <MobileLinks nav={nav} />
+                  </div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
           <div className="flex flex-col  w-full items-center gap-[20px]">
             <p className="font-helvetica text-center [&:not(:first-child)]:mt-2 min-[1200px]:text-[30px] min-[800px]:text-[27px] min-[500px]:text-[24px] max-[500px]:text-[20px] ">
               {" "}
               +234 781 52 952{" "}
             </p>
-            <p className="leading-7 text-center underline underline-offset-1 ">
+            <p className="leading-7 text-center underline underline-offset-1 font-helvetica ">
               6A - ANTHONY HOROWITZ WAY, LEKKI{" "}
             </p>
-            <ul className="flex items-center justify-center gap-[20px] ">
+            <ul className="flex items-center justify-center gap-[20px] font-helvetica ">
               <li>FACEBOOK</li>
               <li>INSTAGRAM</li>
               <li>TWITTER</li>
