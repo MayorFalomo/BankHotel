@@ -53,7 +53,7 @@ function Home_Slider(props: any) {
     {
       id: 2,
       img: "./bigger-copenhagen.png",
-      img2: "./kitchen.png",
+      img2: "./common-area.png",
       title: "Luxury Rooms",
       text:
         "The lesser twin is perfect for those who plan to stay long. The spacious and bright room is equipped with deluxe Italian furniture and has a beautiful view to the historical part of the city. Stylish interior design and comfortable beds will make your stay cozy and pleasant.",
@@ -113,9 +113,9 @@ function Home_Slider(props: any) {
               MATERIALS.{" "}
             </p>
           </div>
-          <div className="w-[95%] mx-auto mt-[30px] lg:h-[100vh]  ">
-            <div className="relative  flex items-end gap-[20px] h-full  justify-between  max-[750px]:flex-col-reverse">
-              <div className="relative flex w-[350px] max-w-[400px]   flex-col items-start justify-between gap-3 max-lg:justify-end  h-[80%]">
+          <div className="w-[95%] mx-auto mt-[30px]  lg:h-[100vh] max-lg:h-[100vh]  max-[600px]:h-[110vh]  ">
+            <div className="relative   flex items-end gap-[20px] h-full  justify-between  max-[800px]:flex-col-reverse">
+              <div className="relative  flex lg:w-[350px] max-xl:w-[90px] min-[800px]:max-w-[400px]  flex-col items-start justify-between gap-3 max-lg:justify-end  min-[800px]:h-[80%]">
                 <div className="absolute top-0 left-0 w-[340px] max-[1200px]:max-w-[100%] max-lg:hidden">
                   <motion.img
                     key={imageCount}
@@ -141,20 +141,30 @@ function Home_Slider(props: any) {
                 </div>
                 <div
                   onClick={() => swipeToImage(1)}
-                  className="absolute bottom-0 left-0 xl:w-[80px] md:w-[60px] w-[40px] cursor-pointer max-[750px]:hidden flex"
+                  className="max-[800px]:hidden flex absolute bottom-0 left-0 xl:w-[80px] md:w-[60px] w-[40px] cursor-pointer "
                 >
                   <img src="./btn-wavy-black.png" alt="img" />
                 </div>
+                <div
+                  onClick={() => swipeToImage(1)}
+                  className=" hidden max-[800px]:flex xl:w-[80px] max-xl:w-[60px] cursor-pointer "
+                >
+                  <img
+                    className="w-full"
+                    src="./btn-wavy-black.png"
+                    alt="img"
+                  />
+                </div>
               </div>
-              <div className=" flex flex-col justify-between items-start gap-[30px] h-[70%] w-[30%] max-lg:justify-center  max-[750px]:w-full">
+              <div className=" flex flex-col justify-between items-start gap-[30px] min-[800px]:h-[75%] max-[800px]:h-[70%]  max-[800px]:w-[100%] w-[30%] max-lg:justify-center  max-[750px]:w-full">
                 <div className="flex items-center  gap-[20px] py-2 px-[35px] rounded-[20px] w-fit max-lg:hidden border-solid border-2 border-gray-400">
                   <p className="text-[#FCD043] text-[25px] ">
                     {<TbNorthStar />}{" "}
                   </p>
                   <p>1973 </p>
                 </div>
-                <section className="flex flex-col h-full w-full items-start overflow-hidden  justify-end gap-[25px] max-[750px]:flex  max-[750px]:flex-column-reverse max-[750px]:items-center">
-                  <div className="w-full h-[220px] overflow-hidden relative  max-[750px]:flex max-[750px]:flex-row-reverse  justify-between items-center">
+                <section className="flex flex-col h-full w-full  items-start overflow-hidden  justify-end gap-[25px] max-[750px]:flex  max-[750px]:flex-column-reverse max-[750px]:items-center">
+                  <div className="w-full min-h-[300px]  max-[800px]:min-h-full max-[1200px]:min-h-[400px] overflow-hidden relative  max-[750px]:flex max-[750px]:flex-row-reverse  justify-between items-center">
                     <AnimatePresence initial={false} custom={direction}>
                       <motion.div
                         key={imageCount}
@@ -196,25 +206,26 @@ function Home_Slider(props: any) {
                       </p>
                     </div> */}
 
-                    <div className=" hidden xl:w-[80px] max-xl:w-[60px] cursor-pointer max-[750px]:flex">
+                    {/* <div className=" hidden xl:w-[80px] max-xl:w-[60px] cursor-pointer max-[750px]:flex">
                       <img
                         className="w-full"
                         src="./btn-wavy-black.png"
                         alt="img"
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </section>
               </div>
               <p className="hidden max-[750px]:flex items-center gap-[20px]">
-                <span>01</span>
+                <span>0{sliderContent[index].id}</span>
                 <span>/</span>
-                <span>04</span>
+                <span>0{sliderContent.length}</span>
               </p>
-              <div className="relative w-[500px] h-full ">
-                <div className="absolute right-0 top-1/2 transform -translate-y-1/2  w-[50%] min-w-[400px] max-w-[550px] max-[750px]:max-w-[100%]  max-[750px]:min-w-[100%] ">
+              <div className="relative min-[800px]:w-[500px] h-full max-lg:h-[100%]  max-[800px]:w-full max-[800px]:h-full  ">
+                <div className="absolute right-0 w-full h-full     max-[750px]:max-w-[100%]  max-[750px]:min-w-[100%] ">
                   <motion.img
                     key={imageCount}
+                    className="h-full object-cover"
                     src={sliderContent[index].img2}
                     initial={{
                       clipPath: "inset(0 0 0 100%)",
@@ -244,21 +255,5 @@ function Home_Slider(props: any) {
     </AnimatePresence>
   );
 }
-
-// const Slider = ({ text }: any) =>
-//   // text: string,
-//   // img: StaticImageData,
-//   // title: string,
-//   // id: number
-//   {
-//     console.log(text, "This is content");
-//     // console.log(text.title, "title");
-
-//     return (
-//       <motion.div>
-//         <h1>{text} </h1>
-//       </motion.div>
-//     );
-//   };
 
 export default Home_Slider;
