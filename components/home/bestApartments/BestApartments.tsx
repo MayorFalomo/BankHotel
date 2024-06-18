@@ -7,7 +7,7 @@ const BestApartments: React.FC = (props: Props) => {
     <div className="">
       <div className="h-[90vh]">
         <div className="h-[100%] w-full relative">
-          <img className="w-full h-full" src="./best-room.png" alt="img" />
+          <img className="w-full h-full" src="./best-room.webp" alt="img" />
           <h1 className="absolute left-[30px] top-[50px] scroll-m-20 xl:text-7xl text-[60px] max-[500px]:text-[50px] font-normal tracking-tight first:mt-0 text-golden_yellow">
             BEST APARTMENTS{" "}
           </h1>

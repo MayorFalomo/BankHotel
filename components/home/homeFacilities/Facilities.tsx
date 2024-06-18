@@ -1,3 +1,4 @@
+import SplitText from "@/components/animation/SplitText";
 import React from "react";
 import { TbStar } from "react-icons/tb";
 
@@ -30,26 +31,34 @@ function Facilities({}: Props) {
           </div>
           <div className="relative">
             <div className="max-[850px]:hidden">
-              <img src="./barman.png" alt="img" />
+              <img src="./barman.webp" alt="img" />
             </div>
             <div className="absolute w-[80px] max-[850px]:hidden min-[850px]:block  top-[-40px] left-[-30px]">
-              <img src="./label2.png" alt="img" />
+              <img src="./label2.webp" alt="img" />
             </div>
           </div>
         </div>
         <div className="flex  items-end  mx-auto gap-[70px] w-[95%] mt-[40px] max-[600px]:flex-col  max-[600px]:gap-[50px]">
           <div className="relative w-[400px] max-[600px]:flex max-[600px]:items-start max-[600px]:w-[60%] min-w-[300px] max-[600px]:mx-auto">
-            <img src="./kitchen.png" alt="img" />
+            <img src="./kitchen.webp" alt="img" />
             <div className="absolute w-[80px] top-[-40px] max-[850px]:block min-[850px]:hidden right-[-30px]">
-              <img src="./label2.png" alt="img" />
+              <img src="./label2.webp" alt="img" />
             </div>
           </div>
           <p className="w-[300px] font-helvetica text-text_royal_green max-[600px]:w-[70%] max-[600px]:flex max-[600px]:justify-end ">
+            {" "}
             Bank Hotel offers you a wide range of additional services and
             facilities. Visit our restaurant to try exclusive meals, book a
             conference hall to organize a business meeting, or relax in the
-            art-bar.{" "}
+            art-bar.
           </p>
+          {/* <SplitText
+            text=" Bank Hotel offers you a wide range of additional services and
+            facilities. Visit our restaurant to try exclusive meals, book a
+            conference hall to organize a business meeting, or relax in the
+              art-bar."
+            classes="w-[300px] text-black font-helvetica text-text_royal_green max-[600px]:w-[70%] max-[600px]:flex max-[600px]:justify-end inline-block"
+          ></SplitText> */}
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ const Faq = (props: Props) => {
     <div className="bg-off-white font-helvetica border-2 border-transparent pb-[80px]  border-solid">
       <div className=" flex items-center justify-between gap-[10px] w-[95%] h-[100vh] max-[580px]:h-full mx-auto max-[580px]:flex-col-reverse max-[580px]:my-[20px]">
         <div className="hidden min-[580px]:flex w-[100px]">
-          <img src="./button_down.png" alt="img" />
+          <img src="./button_down.webp" alt="img" />
         </div>
         <div className="flex flex-col items-start justify-between gap-[30px] h-[50%] w-[500px] max-[580px]:w-full max-[580px]:h-full ">
           <h2 className="scroll-m-20 border-b pb-2 text-5xl font-medium tracking-tight first:mt-0">
@@ -26,12 +26,12 @@ const Faq = (props: Props) => {
               </p>
             </div>
             <div className="flex min-[580px]:hidden min-w-[50px]">
-              <img src="./button_down.png" alt="img" />
+              <img src="./button_down.webp" alt="img" />
             </div>
           </div>
         </div>
         <div className="max-w-[500px] max-[580px]:max-w-full">
-          <img className="" src="./waiting_room.png" alt="img" />
+          <img className="" src="./waiting_room.webp" alt="img" />
         </div>
       </div>
       <div className="w-[95%] mx-auto">
@@ -39,7 +39,7 @@ const Faq = (props: Props) => {
           <div className="flex justify-between items-center w-full border-b-2 pb-[25px] gap-[10px] max-[780px]:flex-col">
             <div className="flex items-start justify-between max-[780px]:w-full gap-[20px]">
               <div className="w-[250px] max-[770px]:mx-auto">
-                <img src="./white_exterior.png" alt="img" />
+                <img src="./white_exterior.webp" alt="img" />
               </div>
               <h3 className="scroll-m-20 text-4xl max-[780px]:text-[30px] font-miracle font-normal tracking-[.10em] hidden max-[780px]:flex max-[770px]:text-end">
                 02
@@ -81,7 +81,7 @@ const Faq = (props: Props) => {
           <div className="flex justify-between items-center w-full border-b-2 pb-[25px] gap-[10px] max-[780px]:flex-col">
             <div className="flex items-start justify-between max-[780px]:w-full gap-[20px]">
               <div className="w-[250px] max-[780px]:mx-auto">
-                <img src="./drink_chairs.png" alt="img" />
+                <img src="./drink_chairs.webp" alt="img" />
               </div>
               <h3 className="scroll-m-20 text-4xl max-[780px]:text-[30px] font-miracle font-normal tracking-[.10em] hidden max-[780px]:flex max-[780px]:text-end">
                 03

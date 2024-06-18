@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { TbNorthStar } from "react-icons/tb";
-import Image1 from "../../../public/mirror-image.png";
-import Image2 from "../../../public/bigger-copenhagen.png";
-import Image3 from "../../../public/space-copenhagen.png";
-import Image4 from "../../../public/cheng-chung.png";
+import Image1 from "../../../public/mirror-image.webp";
+import Image2 from "../../../public/bigger-copenhagen.webp";
+import Image3 from "../../../public/space-copenhagen.webp";
+import Image4 from "../../../public/cheng-chung.webp";
 import { AnimatePresence, motion } from "framer-motion";
 import Slider from "react-slick";
 import { wrap } from "@popmotion/popcorn";
@@ -44,24 +44,24 @@ function Home_Slider(props: any) {
   const [sliderContent, setSliderContent] = useState<ISlider[]>([
     {
       id: 1,
-      img: "./mirror-image.png",
-      img2: "./room-image.png",
+      img: "./mirror-image.webp",
+      img2: "./room-image.webp",
       title: "Superior Twin",
       text:
         "The Superior twin is perfect for those who plan to stay long. The spacious and bright room is equipped with deluxe Italian furniture and has a beautiful view to the historical part of the city. Stylish interior design and comfortable beds will make your stay cozy and pleasant.",
     },
     {
       id: 2,
-      img: "./bigger-copenhagen.png",
-      img2: "./common-area.png",
+      img: "./bigger-copenhagen.webp",
+      img2: "./common-area.webp",
       title: "Luxury Rooms",
       text:
         "The lesser twin is perfect for those who plan to stay long. The spacious and bright room is equipped with deluxe Italian furniture and has a beautiful view to the historical part of the city. Stylish interior design and comfortable beds will make your stay cozy and pleasant.",
     },
     {
       id: 3,
-      img: "./cheng-chung.png",
-      img2: "./bigger-copenhagen.png",
+      img: "./cheng-chung.webp",
+      img2: "./bigger-copenhagen.webp",
 
       title: "Fancy Rooms",
       text:
@@ -69,8 +69,8 @@ function Home_Slider(props: any) {
     },
     {
       id: 4,
-      img: "./space-copenhagen.png",
-      img2: "./small_apart.png",
+      img: "./space-copenhagen.webp",
+      img2: "./small_apart.webp",
       title: "Luxury Rooms",
       text:
         "The Superior twin is perfect for those who plan to stay long. The spacious and bright room is equipped with deluxe Italian furniture and has a beautiful view to the historical part of the city. Stylish interior design and comfortable beds will make your stay cozy and pleasant.",
@@ -78,7 +78,10 @@ function Home_Slider(props: any) {
   ]);
   const [slideIndex, setSlideIndex] = useState<number>(0);
 
-  const [[imageCount, direction], setImageCount] = useState([0, 0]);
+  const [[imageCount, direction], setImageCount] = useState<[number, number]>([
+    0,
+    0,
+  ]);
 
   const swipeToImage = (swipeDirection: number) => {
     setImageCount([imageCount + swipeDirection, swipeDirection]);
@@ -143,7 +146,7 @@ function Home_Slider(props: any) {
                   onClick={() => swipeToImage(1)}
                   className="max-[800px]:hidden flex absolute bottom-0 left-0 xl:w-[80px] md:w-[60px] w-[40px] cursor-pointer "
                 >
-                  <img src="./btn-wavy-black.png" alt="img" />
+                  <img src="./btn-wavy-black.webp" alt="img" />
                 </div>
                 <div
                   onClick={() => swipeToImage(1)}
@@ -151,7 +154,7 @@ function Home_Slider(props: any) {
                 >
                   <img
                     className="w-full"
-                    src="./btn-wavy-black.png"
+                    src="./btn-wavy-black.webp"
                     alt="img"
                   />
                 </div>
@@ -209,7 +212,7 @@ function Home_Slider(props: any) {
                     {/* <div className=" hidden xl:w-[80px] max-xl:w-[60px] cursor-pointer max-[750px]:flex">
                       <img
                         className="w-full"
-                        src="./btn-wavy-black.png"
+                        src="./btn-wavy-black.webp"
                         alt="img"
                       />
                     </div> */}

@@ -103,7 +103,7 @@ const HeroHeader = () => {
               <span className="">1973 </span>
             </button>
             <div className="cursor-pointer min-[100px]:w-[30px] min-[650px]:w-[40px] min-[1200px]:w-[50px] max-[800px]:hidden">
-              <img src="/wavy.png" alt="img" />
+              <img src="/wavy.webp" alt="img" />
             </div>
           </div>
           {/* <SplitText

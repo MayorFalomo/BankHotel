@@ -35,7 +35,7 @@ const GetInTouch = (props: Props) => {
             </h1>
 
             <div className="absolute min-[780px]:top-[50px] max-[780px]:bottom-[-180px] right-0  z-[-1px] max-sm:w-[200px]">
-              <img src="./chair.png" alt="img" />
+              <img src="./chair.webp" alt="img" />
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ const GetInTouch = (props: Props) => {
       />
       <img
         className="flex md:hidden absolute z-5  max-[780px]:bottom-[50px] left-[10px] w-[80px] "
-        src="./coloured_wavy_btn.png"
+        src="./coloured_wavy_btn.webp"
         alt="img"
       />
     </div>

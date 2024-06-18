@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import { AnimatePresence, motion, Variant } from "framer-motion";
 import Link from "next/link";
 interface Props {}
 
-interface Nav {
+interface INav {
   name: string;
   link: string;
 }
 
-interface MenuState {
+interface IMenuState {
   menuState: boolean;
   setMenuState: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface Variants {
+interface IVariants {
   [key: string]: Variant;
 }
 
-const MobileNav = (props: MenuState) => {
-  const [navLinks, setNavLinks] = useState<Nav[]>([
+const MobileNav = (props: IMenuState) => {
+  const [navLinks, setNavLinks] = useState<INav[]>([
     {
       name: "Home",
       link: "/",
@@ -45,7 +45,7 @@ const MobileNav = (props: MenuState) => {
     },
   ]);
 
-  const menuLinks: Variants = {
+  const menuLinks: IVariants = {
     initial: {
       scaleY: 0,
     },
@@ -71,7 +71,7 @@ const MobileNav = (props: MenuState) => {
     },
   };
 
-  const containerVars: Variants = {
+  const containerVars: IVariants = {
     initial: {
       transition: {
         staggerChildren: 0.09,
@@ -102,7 +102,7 @@ const MobileNav = (props: MenuState) => {
               BankHotel
             </p>
             <p
-              onClick={() => props.setMenuState((prev) => !prev)}
+              onClick={() => props.setMenuState((prev: boolean) => !prev)}
               className="text-[25px] cursor-pointer min-[1200px]:hidden max-[1200px]:block "
             >
               <svg
@@ -179,7 +179,7 @@ const mobileLinkVars = {
   },
 };
 
-const MobileLinks = ({ nav }: { nav: Nav }) => {
+const MobileLinks = ({ nav }: { nav: INav }) => {
   return (
     <motion.ul className="flex items-center gap-[20px] mx-auto min-[1200px]:text-[30px] min-[800px]:text-[27px] min-[500px]:text-[24px] max-[500px]:text-[27px] font-helvetica ">
       <motion.li

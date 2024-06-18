@@ -58,7 +58,7 @@ const About_us = (props: Props) => {
                           clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
                         }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
-                        src="./bigger-copenhagen.png"
+                        src="./bigger-copenhagen.webp"
                         alt="img"
                       />
                       // </ImageReveal>
@@ -78,10 +78,10 @@ const About_us = (props: Props) => {
                   </div>
                 </div>
                 <div className="absolute top-[-10px] xl:left-[250px] lg:left-[220px] w-[100%] z-[-1px] ">
-                  <img src="./grouped.png" alt="img" />
+                  <img src="./grouped.webp" alt="img" />
                 </div>
                 {/* <div className="absolute top-[-20px] left-[-20px] w-[90%] z-[-1px] ">
-                <img src="./Ellipse.png" alt="img" />
+                <img src="./Ellipse.webp" alt="img" />
               </div> */}
               </div>
               <div className="flex flex-col  font-miracle absolute z-10 top-1/3 max-[770px]:left-[50%]  md:left-[70%] lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-[750px]:flex max-[750px]:flex-row  max-[750px]:gap-[25px] max-[750px]:top-[-10px] ">
@@ -97,21 +97,21 @@ const About_us = (props: Props) => {
                   {inView && (
                     <ImageReveal>
                       <div className="w-[280px] max-[1300px]:w-[200px] mx-auto h-[40vh]">
-                        <img src="./space-copenhagen.png" alt="img" />
+                        <img src="./space-copenhagen.webp" alt="img" />
                       </div>
                     </ImageReveal>
                   )}
                 </div>
                 {/* <div className="absolute h-[100%] w-[1px] bg-[#3F5148] top-0 left-[-150px]"></div> */}
                 <div className="absolute w-[50px] top-[0px] left-[-45px]">
-                  <img src="./label.png" alt="img" />
+                  <img src="./label.webp" alt="img" />
                 </div>
                 <div className="absolute xl:w-[120px] max-sm:w-[80px] sm:w-[90px] xl:bottom-[80px] lg:bottom-[-40px] md:bottom-[-60px] left-[35px]">
-                  <img src="./button-default.png" alt="img" />
+                  <img src="./button-default.webp" alt="img" />
                 </div>
               </div>
               {/* <div className="absolute w-[65%] top-[-20px] right-[0px]">
-              <img src="./Vector_14.png" alt="img" />
+              <img src="./Vector_14.webp" alt="img" />
             </div> */}
             </div>
             {/* <div className="absolute h-[100%] z-20 w-[1px] bg-[#3F5148] top-0 left-[-140px]"></div> */}

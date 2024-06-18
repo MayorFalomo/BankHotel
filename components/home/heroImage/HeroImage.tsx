@@ -59,7 +59,7 @@ function HeroImage({}: Props) {
             className={
               inView ? `transform transition duration-1000 scale-105` : ""
             }
-            src="./heroImage.png"
+            src="./heroImage.webp"
             alt="img"
           />
           <div className="flex items-center absolute max-[900px]:bottom-0 min-[900px]:top-0 right-0 font-helvetica">
