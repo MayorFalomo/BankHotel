@@ -8,6 +8,7 @@ type Props = {};
 interface IHead {
   text: string;
   inview: boolean;
+  i: number;
 }
 
 interface Variants {
@@ -53,31 +54,31 @@ const Gallery: React.FC = (props: Props) => {
                   {heading.map((text: any, i: number) => {
                     return (
                       <div className="overflow-hidden" key={i}>
-                        <TextMask text={text} inview={inView} />
+                        <TextMask text={text} inview={inView} i={i} />
                       </div>
                     );
                   })}
                 </motion.div>
                 // </AnimatePresence>
               }
-              <motion.div>
+              {/* <motion.div>
                 {subText.map((text: any, i: number) => {
                   return (
                     <div className="overflow-hidden" key={i}>
-                      <TextSubMask text={text} inview={inView} />
+                      <TextSubMask text={text} inview={inView} i={i} />
                     </div>
                   );
                 })}
-              </motion.div>
+              </motion.div> */}
               {/* <h1 className="text-golden_yellow text-center xl:text-8xl md:text-[70px] sm:text-[60px] text-[50px] mt-[30px]">
               OUR GALLERY{" "}
             </h1> */}
-              {/* <p className="w-[370px] leading-7 [&:not(:first-child)]:mt-6 font-helvetica text-white text-center ">
+              <p className="w-[370px] leading-7 [&:not(:first-child)]:mt-6 font-helvetica text-white text-center ">
                 Explore our spacious rooms with the gorgeous view to the
                 historical part of the city. Each room has an exclusive interior
                 design decorated with modern art pieces that will make your stay
                 unforgettable.{" "}
-              </p> */}
+              </p>
             </div>
 
             <div className="mx-auto relative z-10 max-[480px]:hidden flex max-[630px]:my-[100px] xl:w-[600px] md:w-[500px] sm:w-[400px] w-[300px] mt-[30px]">
@@ -165,22 +166,6 @@ const textVars = {
       duration: 0.7,
     },
   },
-  // hidden: {
-  //   y: "20vh",
-  //   transition: {
-  //     ease: [0, 0.55, 0.45, 1],
-  //     duration: 0.5,
-  //     delay: 1,
-  //   },
-  // },
-  // visible: {
-  //   y: 0,
-  //   transition: {
-  //     ease: [0, 0.55, 0.45, 1],
-  //     duration: 0.7,
-  //     delay: 1,
-  //   },
-  // },
 };
 
 const TextMask = ({ text, inview }: IHead) => {
@@ -197,17 +182,17 @@ const TextMask = ({ text, inview }: IHead) => {
   );
 };
 
-const TextSubMask = ({ text, inview }: IHead) => {
-  return (
-    <motion.p
-      variants={textVars}
-      initial="initial"
-      animate={inview ? "open" : "initial"}
-      exit="exit"
-      className="w-[370px] leading-7 [&:not(:first-child)]:mt-6 font-helvetica text-white text-center "
-    >
-      {text}
-    </motion.p>
-  );
-};
+// const TextSubMask = ({ text, inview, i }: IHead) => {
+
+//   return (
+//     <motion.p
+//       initial="hidden"
+//       animate={inview ? "visible" : "hidden"}
+//       exit="exit"
+//       className="w-[370px] leading-7 [&:not(:first-child)]:mt-6 font-helvetica text-white text-center "
+//     >
+//       {text}
+//     </motion.p>
+//   );
+// };
 export default Gallery;

@@ -3,6 +3,7 @@ import React, { memo, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNav from "../mobileNavbar/MobileNav";
+import Link from "next/link";
 
 const Navbar = () => {
   const [menuState, setMenuState] = useState<boolean>(false);
@@ -14,9 +15,15 @@ const Navbar = () => {
           BankHotel
         </h2>
         <ul className="flex items-center justify-around gap-[15px] w-[50%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
-          <li className="cursor-pointer hover:text-golden_yellow">HOME</li>
-          <li className="cursor-pointer hover:text-golden_yellow">ABOUT</li>
-          <li className="cursor-pointer hover:text-golden_yellow">ROOMS</li>
+          <li className="cursor-pointer hover:text-golden_yellow">
+            <Link href="/"> HOME</Link>
+          </li>
+          <li className="cursor-pointer hover:text-golden_yellow">
+            <Link href="/"> ABOUT </Link>
+          </li>
+          <li className="cursor-pointer hover:text-golden_yellow">
+            <Link href="/rooms"> ROOMS </Link>{" "}
+          </li>
           <li className="cursor-pointer hover:text-golden_yellow">
             RESTAURANT
           </li>

@@ -2,6 +2,7 @@ import ImageReveal from "@/components/animation/ImageReveal";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { AnimatePresence, motion } from "framer-motion";
+import MaskText from "@/components/animation/MaskText";
 
 type Props = {};
 
@@ -17,9 +18,10 @@ const About_us = (props: Props) => {
   // console.log(trigger, "trigger");
 
   const { ref, inView, entry } = useInView({
-    threshold: 0.3,
+    threshold: 0,
     triggerOnce: trigger ? false : true,
   });
+
   return (
     <AnimatePresence>
       <div className="bg-regal_green w-full sticky top-0  h-full border-[1px] border-transparent  border-solid ">
@@ -31,16 +33,14 @@ const About_us = (props: Props) => {
             <div className="relative flex justify-between h-[80%]">
               <div className="relative w-full h-full">
                 <div
+                  ref={ref}
                   className={`flex  h-[100vh] ${
                     inView ? "max-[780px]:h-auto" : "max-[780px]:h-full"
                   }  gap-[30px] ${
                     inView ? "items-end" : "items-end"
                   } max-[750px]:flex-col max-[650px]:items-center`}
                 >
-                  <div
-                    ref={ref}
-                    className=" w-[500px] min-w-[500px] max-[1300px]:w-[400px] max-[1300px]:min-w-[400px] max-[450px]:min-w-full object-contain mt-[40px] h-[100vh]  relative z-[1] max-[750px]:h-[70vh] max-[750px]:w-[100%]"
-                  >
+                  <div className=" w-[500px] min-w-[500px] max-[1300px]:w-[400px] max-[1300px]:min-w-[400px] max-[450px]:min-w-full object-contain mt-[40px] h-[100vh]  relative z-[1] max-[750px]:h-[70vh] max-[750px]:w-[100%]">
                     {inView && (
                       // <ImageReveal>
                       <motion.img
@@ -68,13 +68,23 @@ const About_us = (props: Props) => {
                     <h2 className="font-miracle scroll-m-20 text-2xl font-semibold tracking-[.10em]">
                       High Quality{" "}
                     </h2>
-                    <p className="w-[100%]  md:w-[80%] max-sm:w-[100%]   max-xl:w-[90%] leading-7 [&:not(:first-child)]: mt-3 lg:text-[17px] sm:text-[16px] max-sm:text-[14px] font-helvetica">
+                    <MaskText
+                      inview={inView}
+                      customStyles="w-[100%]  md:w-[80%] max-sm:w-[100%]  max-xl:w-[90%] leading-7 [&:not(:first-child)]: mt-3 lg:text-[17px] sm:text-[16px] max-sm:text-[14px] font-helvetica"
+                    >
+                      The five-star Bank Hotel was reopened to visitors in 2016.
+                      The building was renovated and modernized to meet the
+                      expectations of the most demanding guests. We offer
+                      luxurious rooms, numerous facilities, and exceptional
+                      service.
+                    </MaskText>
+                    {/* <p className="w-[100%]  md:w-[80%] max-sm:w-[100%]   max-xl:w-[90%] leading-7 [&:not(:first-child)]: mt-3 lg:text-[17px] sm:text-[16px] max-sm:text-[14px] font-helvetica">
                       The five-star Bank Hotel was reopened to visitors in 2016.
                       The building was renovated and modernized to meet the
                       expectations of the most demanding guests. We offer
                       luxurious rooms, numerous facilities, and exceptional
                       service.{" "}
-                    </p>
+                    </p> */}
                   </div>
                 </div>
                 <div className="absolute top-[-10px] xl:left-[250px] lg:left-[220px] w-[100%] z-[-1px] ">

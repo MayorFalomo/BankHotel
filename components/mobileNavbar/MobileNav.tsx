@@ -29,7 +29,7 @@ const MobileNav = (props: IMenuState) => {
     },
     {
       name: "Rooms",
-      link: "#",
+      link: "/rooms",
     },
     {
       name: "Restaurant",
@@ -189,7 +189,7 @@ const MobileLinks = ({ nav }: { nav: INav }) => {
         exit="exit"
         className="cursor-pointer"
       >
-        <Link href={`${nav.link}`}>{nav.name}</Link>
+        <Link href={nav.link}>{nav.name}</Link>
       </motion.li>
       {nav.name == "Home" ? (
         <img className="w-[30px]" src="./Star.svg" alt="img" />

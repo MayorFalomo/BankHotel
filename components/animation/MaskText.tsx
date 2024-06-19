@@ -1,14 +1,17 @@
 import React from "react";
 import { AnimatePresence, motion, Variant, Variants } from "framer-motion";
 
-type IProps = {
-  text: string;
-  inview: boolean;
-};
+interface IProps {
+  children: React.ReactNode;
+  customStyles?: string;
+  inview?: boolean;
+}
 
 interface IHead {
   text: string;
-  inview: boolean;
+  inview?: boolean;
+  i: number;
+  customStyles?: string;
 }
 
 interface IVariant {
@@ -16,22 +19,21 @@ interface IVariant {
 }
 
 const MaskText = (props: IProps) => {
-  const { text, inview } = props;
-
-  console.log(text, "texts");
-
-  const textProps = [text];
+  const textProps = Array.isArray(props.children)
+    ? props.children
+    : [props.children];
 
   return (
     <AnimatePresence mode="wait">
       <motion.div className="w-[100%]">
-        {textProps.map((text: any, i: number) => {
-          return (
-            <div className="overflow-hidden" key={i}>
-              <TextMask text={text} inview={inview} />
-            </div>
-          );
-        })}
+        {textProps.map((text, i) => (
+          <TextMask
+            text={text}
+            i={i}
+            inview={props.inview}
+            customStyles={props.customStyles}
+          />
+        ))}
       </motion.div>
     </AnimatePresence>
   );
@@ -57,14 +59,16 @@ const textVars: IVariant = {
   },
 };
 
-const TextMask = ({ text, inview }: IHead) => {
+const TextMask = ({ text, inview, customStyles }: IHead) => {
   return (
     <motion.p
       variants={textVars}
       initial="initial"
       animate={inview ? "open" : "initial"}
       exit="exit"
-      className="text-white"
+      className={`${
+        customStyles || ""
+      } overflow-hidden inline-block text-white`}
     >
       {text}
     </motion.p>

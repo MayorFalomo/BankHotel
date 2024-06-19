@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+'hero-header': "url('/room-image.webp')"
+      },
       colors: {
         "regal_green": "#313F38",
         "hero-btn": "rgba(49, 63, 56, 0.48)",
