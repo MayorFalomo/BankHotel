@@ -89,6 +89,9 @@
       overflow-x: hidden !important;
       scroll-behavior: smooth;
     }
+    body::-webkit-scrollbar{
+      width: 0;
+    }
     img{
       width: 100%;
     }

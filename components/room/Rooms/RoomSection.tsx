@@ -37,13 +37,18 @@ const RoomSection = (props: Props) => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-[30px] w-full h-full items-start mt-[100px]">
-          <p className="text-[26px] leading-7 font-helvetica text-golden_yellow">
+        <div className=" relative flex flex-col gap-[30px] w-full h-full items-start mt-[100px]">
+          <p className="text-[26px] relative z-[5] leading-7 font-helvetica text-golden_yellow">
             Premier Standard{" "}
           </p>
-          <div className="w-[100%] h-auto ">
+          <div className="w-[100%] relative z-[5]  h-auto ">
             <img src="../comfort.png" alt="img" />
           </div>
+          <img
+            className="max-[450px]:flex min-[500px]:hidden absolute top-[-50px] left-0 z-[1] "
+            src="../premierVector.svg"
+            alt="img"
+          />
         </div>
       </div>
     </div>

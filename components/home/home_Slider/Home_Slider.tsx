@@ -6,8 +6,13 @@ import Image3 from "../../../public/space-copenhagen.webp";
 import Image4 from "../../../public/cheng-chung.webp";
 import { AnimatePresence, motion } from "framer-motion";
 import Slider from "react-slick";
+import { useInView } from "react-intersection-observer";
+
 import { wrap } from "@popmotion/popcorn";
 import { StaticImageData } from "next/image";
+import FadeIn from "@/components/animation/FadeIn";
+import FadeInText from "@/components/animation/FadeInText";
+import FadeInTextHeader from "@/components/animation/FadeInTextHeader";
 
 type Props = {};
 
@@ -99,22 +104,39 @@ function Home_Slider(props: any) {
     }
   };
 
+  const { ref, inView, entry } = useInView({
+    threshold: 0.3,
+    triggerOnce: false,
+  });
+
   return (
     <AnimatePresence>
       <div className="bg-off-white h-full relative border-[1px] border-transparent border-solid">
         <div className="h-full lg:my-[100px] max-md:my-[50px] ">
-          <div className="flex justify-between items-start gap-[20px]  mx-auto mt-[50px] w-[95%] max-[760px]:flex-wrap max-[650px]:justify-center">
-            <h1 className="text-start leading-[65px] flex flex-col gap-[10px] text-text_royal_green font-miracle scroll-m-10 text-[40px] font-medium tracking-[.10em] lg:text-[80px] xl:text-[80px]  max-xl:text-[50px]  max-[500px]:text-[30px]  max-[500px]:leading-[35px] max-[760px]:text-center max-[760px]:w-full ">
+          <div
+            ref={ref}
+            className="flex justify-between items-start gap-[20px]  mx-auto mt-[50px] w-[95%] max-[760px]:flex-wrap max-[650px]:justify-center"
+          >
+            <FadeInTextHeader
+              inView={inView}
+              style="text-start leading-[65px] flex flex-col gap-[10px] text-text_royal_green font-miracle scroll-m-10 text-[40px] font-medium tracking-[.10em] lg:text-[80px] xl:text-[80px]  max-xl:text-[50px]  max-[500px]:text-[30px]  max-[500px]:leading-[35px] max-[760px]:text-center max-[760px]:w-full "
+            >
               <span className="max-[760px]:w-[50%] max-[760px]:text-end ">
                 {" "}
                 ROOMS{" "}
               </span>{" "}
               <span className="max-[760px]:text-end"> & APARTMENTS </span>
-            </h1>
-            <p className=" w-[280px]  max-[760px]:w-[95%] font-helvetica text-text_royal_green text-#000 leading-7">
+            </FadeInTextHeader>
+            <FadeInText
+              inView={inView}
+              style="w-[280px]  max-[760px]:w-[95%] font-helvetica text-text_royal_green text-#000 leading-7"
+            >
               ALL ROOM DECORATION WAS MADE WITH ECOLOGICAL CERTIFIED AND SAFE
-              MATERIALS.{" "}
-            </p>
+              MATERIALS.
+            </FadeInText>
+            {/* <p className="w-[280px]  max-[760px]:w-[95%] font-helvetica text-text_royal_green text-#000 leading-7 ">
+              ALL ROOM DECORATION WAS MADE WITH ECOLOGICAL CERTIFIED AND SAFE
+            </p> */}
           </div>
           <div className="w-[95%] mx-auto mt-[30px]  lg:h-[100vh] max-lg:h-[100vh]  max-[600px]:h-[110vh]  ">
             <div className="relative   flex items-end gap-[20px] h-full  justify-between  max-[800px]:flex-col-reverse">

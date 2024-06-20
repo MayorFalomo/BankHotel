@@ -15,16 +15,19 @@ const About_us = (props: Props) => {
     }
   }, []);
 
+  const [ref, inView] = useInView();
+  const [ref2, inView2] = useInView();
+
   // console.log(trigger, "trigger");
 
-  const { ref, inView, entry } = useInView({
-    threshold: 0,
-    triggerOnce: trigger ? false : true,
-  });
+  // const {  inView, entry } = useInView({
+  //   threshold: 0,
+  //   triggerOnce: trigger ? false : true,
+  // });
 
   return (
     <AnimatePresence>
-      <div className="bg-regal_green w-full sticky top-0  h-full border-[1px] border-transparent  border-solid ">
+      <div className="bg-regal_green w-full  h-full border-[1px] border-transparent  border-solid ">
         <div
           id="anchor"
           className="w-[95%] my-[70px] mx-auto max-[750px]:my-[100px]  border-solid  "
@@ -64,12 +67,12 @@ const About_us = (props: Props) => {
                       // </ImageReveal>
                     )}
                   </div>
-                  <div className="text-white_text">
+                  <div ref={ref2} className="text-white_text">
                     <h2 className="font-miracle scroll-m-20 text-2xl font-semibold tracking-[.10em]">
                       High Quality{" "}
                     </h2>
                     <MaskText
-                      inview={inView}
+                      inview={inView2}
                       customStyles="w-[100%]  md:w-[80%] max-sm:w-[100%]  max-xl:w-[90%] leading-7 [&:not(:first-child)]: mt-3 lg:text-[17px] sm:text-[16px] max-sm:text-[14px] font-helvetica"
                     >
                       The five-star Bank Hotel was reopened to visitors in 2016.

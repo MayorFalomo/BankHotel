@@ -1,4 +1,4 @@
-import React, { SetStateAction, useState } from "react";
+import React, { SetStateAction, useState, memo } from "react";
 import { AnimatePresence, motion, Variant } from "framer-motion";
 import Link from "next/link";
 interface Props {}
@@ -17,7 +17,7 @@ interface IVariants {
   [key: string]: Variant;
 }
 
-const MobileNav = (props: IMenuState) => {
+const MobileNav = React.memo((props: IMenuState) => {
   const [navLinks, setNavLinks] = useState<INav[]>([
     {
       name: "Home",
@@ -32,13 +32,13 @@ const MobileNav = (props: IMenuState) => {
       link: "/rooms",
     },
     {
-      name: "Restaurant",
-      link: "#",
+      name: "Facilities",
+      link: "/facility",
     },
-    {
-      name: "Conference Hall",
-      link: "#",
-    },
+    // {
+    //   name: "Conference Hall",
+    //   link: "#",
+    // },
     {
       name: "Contacts",
       link: "#",
@@ -94,7 +94,7 @@ const MobileNav = (props: IMenuState) => {
         initial="initial"
         animate="animate"
         exit="exit"
-        className="fixed top-[0px] left-0 z-20 h-full w-full origin-top bg-regal_green min-[1200px]:hidden max-[1200px]:block"
+        className="fixed top-[0px] left-0 z-20 h-[100%] w-[100%] origin-top bg-regal_green min-[1200px]:hidden max-[1200px]:block"
       >
         <div className="flex flex-col items-start justify-between h-full gap-[20px] pb-3 ">
           <div className="flex items-center justify-between  w-[95%] mx-auto ">
@@ -159,7 +159,7 @@ const MobileNav = (props: IMenuState) => {
       </motion.div>
     </AnimatePresence>
   );
-};
+});
 
 const mobileLinkVars = {
   initial: {

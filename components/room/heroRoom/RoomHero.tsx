@@ -10,16 +10,16 @@ const RoomHero = (props: Props) => {
           backgroundImage: "url(../room_hero.png)",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "left",
           backgroundAttachment: "fixed",
         }}
         className="relative w-[100%] h-[90vh] "
       >
-        {/* <img
-          className="w-full object-contain"
-          src="../room-image.webp"
+        <img
+          className=" absolute left-0 top-[45%] hidden max-[450px]:flex "
+          src="../roomVector16.svg"
           alt="img"
-        /> */}
+        />
         <h1 className="absolute leading-[70px] left-[20px] top-[40px] z-[1] text-start flex flex-col gap-[45px] 2xl:text-[100px] lg:text-[80px] sm:text-[80px] text-[80px] max-[480px]:text-[70px]  text-golden_yellow font-miracle">
           <span>Superior</span> <span> twin </span>{" "}
         </h1>

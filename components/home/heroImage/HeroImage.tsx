@@ -11,7 +11,7 @@ type Variants = {
 
 function HeroImage({}: Props) {
   const { ref, inView, entry } = useInView({
-    threshold: 0,
+    threshold: 0.3,
   });
 
   const heading = "Full Stack Web Dev";

@@ -8,27 +8,23 @@ import RoomFacilities from "@/components/room/room-facilities/Rooms";
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SmoothScroll from "@/components/animation/SmoothScroll";
+import FadeIn from "@/components/animation/FadeIn";
 // import SmoothScroll from "@/components/animation/SmoothScroll";
 type Props = {};
 
 export default function Rooms(props: Props) {
   return (
     <SmoothScroll>
-      <AnimatePresence>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="w-full h-full overflow-hidden"
-        >
+      <FadeIn>
+        <div className="w-full h-full  ">
           <Navbar />
           <RoomHero />
           <RoomSection />
           <RoomFacilities />
           <GetInTouch />
           <Footer />
-        </motion.div>
-      </AnimatePresence>
+        </div>
+      </FadeIn>
     </SmoothScroll>
   );
 }

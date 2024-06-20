@@ -18,8 +18,8 @@ import SmoothScroll from "@/components/animation/SmoothScroll";
 
 export default function Home() {
   return (
-    <FadeIn>
-      <SmoothScroll>
+    <SmoothScroll>
+      <FadeIn>
         <Navbar />
         <HeroHeader />
         <HeroImage />
@@ -31,7 +31,7 @@ export default function Home() {
         <Gallery />
         <GetInTouch />
         <Footer />
-      </SmoothScroll>
-    </FadeIn>
+      </FadeIn>
+    </SmoothScroll>
   );
 }

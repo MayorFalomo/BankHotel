@@ -9,13 +9,13 @@ const Navbar = () => {
   const [menuState, setMenuState] = useState<boolean>(false);
 
   return (
-    <nav className="bg-[#313F38] pb-1 text-white">
+    <nav className="bg-[#313F38] max-[1200px]:sticky top-0 left-0 z-30 w-full pb-1 text-white">
       <div className="flex items-center justify-between m-[auto] py-1 w-[95%]">
         <h2 className="scroll-m-20  text-3xl font-semibold tracking-tight first:mt-2">
           BankHotel
         </h2>
-        <ul className="flex items-center justify-around gap-[15px] w-[50%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
-          <li className="cursor-pointer hover:text-golden_yellow">
+        <ul className="flex items-center justify-around gap-[15px] w-[40%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
+          <li className="cursor-pointer hover:text-golden_yellow transition-all">
             <Link href="/"> HOME</Link>
           </li>
           <li className="cursor-pointer hover:text-golden_yellow">
@@ -25,11 +25,11 @@ const Navbar = () => {
             <Link href="/rooms"> ROOMS </Link>{" "}
           </li>
           <li className="cursor-pointer hover:text-golden_yellow">
-            RESTAURANT
+            <Link href="/facility"> FACILITIES </Link>
           </li>
-          <li className="cursor-pointer hover:text-golden_yellow">
+          {/* <li className="cursor-pointer hover:text-golden_yellow">
             CONFERENCE HALL
-          </li>
+          </li> */}
           <li className="cursor-pointer hover:text-golden_yellow">CONTACTS</li>
         </ul>
         <p className="font-helvetica [&:not(:first-child)]:mt-2 sm:hidden min-[1200px]:flex min-[100px]:hidden">
