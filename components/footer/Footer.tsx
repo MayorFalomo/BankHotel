@@ -1,11 +1,18 @@
+import { usePathname } from "next/navigation";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 
 type Props = {};
 
 const Footer: React.FC = (props: Props) => {
+  const route = usePathname();
+
   return (
-    <footer className="bg-off-white border-[1px] border-transparent  font-helvetica">
+    <footer
+      className={`${route == "/facility" ? "bg-regal_green" : "bg-off-white"} ${
+        route == "/facility" ? "text-white" : "#000"
+      }  border-[1px] border-transparent  font-helvetica`}
+    >
       <div className="min-[680px]:w-[95%] w-[95%] mx-auto mt-[50px] pb-[50px] flex items-start justify-start gap-[50px] flex-wrap ">
         <div className="flex flex-col items-start gap-[10px] max-[480px]:hidden">
           <h3 className="text-xl">ABOUT US</h3>
@@ -45,7 +52,7 @@ const Footer: React.FC = (props: Props) => {
           </ul>
         </div>
         <div className="w-full max-[480px]:block hidden">
-          <div className="h-[1px] w-full bg-gray-200 "> </div>
+          <div className="h-[1px] w-full bg-gray-200 hidden "> </div>
           <p className="opacity-[0.4]  text-center mt-6">
             {" "}
             © 2021 All rights reserved. BankHotel{" "}

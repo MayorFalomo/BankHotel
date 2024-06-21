@@ -25,7 +25,7 @@ const MobileNav = React.memo((props: IMenuState) => {
     },
     {
       name: "About",
-      link: "#",
+      link: "/about",
     },
     {
       name: "Rooms",
@@ -41,7 +41,7 @@ const MobileNav = React.memo((props: IMenuState) => {
     // },
     {
       name: "Contacts",
-      link: "#",
+      link: "/contacts",
     },
   ]);
 

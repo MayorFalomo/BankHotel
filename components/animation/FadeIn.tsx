@@ -14,7 +14,7 @@ const FadeIn = ({ children }: Props) => {
           transition: { duration: 0.5 },
         }}
         exit={{ opacity: 0 }}
-        className="w-[100%] relative [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] "
+        className="w-[100%] relative overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] "
       >
         {children}
       </motion.div>

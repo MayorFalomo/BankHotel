@@ -1,10 +1,45 @@
 import SplitText from "@/components/animation/SplitText";
-import React from "react";
+import React, { useMemo } from "react";
 import { TbStar } from "react-icons/tb";
+import { AnimatePresence, motion, Variant } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 type Props = {};
 
+interface IVariants {
+  [key: string]: Variant;
+}
+
 function Facilities({}: Props) {
+  const containerVars: IVariants = {
+    initial: {
+      transition: {
+        staggerChildren: 0.09,
+        staggerDirection: -1,
+      },
+    },
+    open: {
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.09,
+        staggerDirection: 1,
+      },
+    },
+  };
+
+  const texts = [
+    " Bank Hotel offers you a wide range of",
+    "additional services and facilities. Visit our",
+    "restaurant to try exclusive meals, book a",
+    "conference hall to organize a business",
+    " meeting, or relax in the art-bar.",
+  ];
+
+  const { ref, inView, entry } = useInView({
+    threshold: 0,
+    // triggerOnce: true,
+  });
+
   return (
     <div className="bg-off-white w-[100%] border-2 border-transparent border-solid ">
       <div className="mt-[100px] ">
@@ -45,13 +80,44 @@ function Facilities({}: Props) {
               <img src="./label2.webp" alt="img" />
             </div>
           </div>
-          <p className="w-[300px] font-helvetica text-text_royal_green max-[600px]:w-[70%] max-[600px]:flex max-[600px]:justify-end ">
-            {" "}
+          {/* <p >
             Bank Hotel offers you a wide range of additional services and
             facilities. Visit our restaurant to try exclusive meals, book a
             conference hall to organize a business meeting, or relax in the
             art-bar.
-          </p>
+          </p> */}
+          <div ref={ref}>
+            <AnimatePresence>
+              {texts.map((text, index: number) => (
+                <motion.ul
+                  key={index}
+                  variants={containerVars}
+                  initial="initial"
+                  animate="open"
+                  className="w-[300px] max-[600px]:w-[100%] max-[600px]:block max-[600px]:ml-auto  overflow-hidden"
+                >
+                  <Staggered text={text} inview={inView} index={index} />
+                </motion.ul>
+              ))}
+            </AnimatePresence>
+          </div>
+          {/* <motion.ul
+            className="overflow-hidden"
+            variants={containerVars}
+            initial="initial"
+            animate="open"
+          >
+            <motion.li
+            
+            >
+              {" "}
+              Bank Hotel offers you a wide range of{" "}
+            </motion.li>
+            <motion.li>additional services and facilities. Visit our</motion.li>
+            <motion.li>restaurant to try exclusive meals, book a</motion.li>
+            <motion.li> conference hall to organize a business</motion.li>
+            <motion.li> meeting, or relax in the art-bar.</motion.li>
+          </motion.ul> */}
           {/* <SplitText
             text=" Bank Hotel offers you a wide range of additional services and
             facilities. Visit our restaurant to try exclusive meals, book a
@@ -64,5 +130,38 @@ function Facilities({}: Props) {
     </div>
   );
 }
+
+const Staggered = ({ text, inview }: any) => {
+  const mobileLinkVars: IVariants = {
+    initial: {
+      opacity: 0,
+      y: "30vh",
+      transition: {
+        duration: 0.5,
+        // ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.37, 0, 0.63, 1],
+      },
+    },
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        ease: [0, 0.55, 0.45, 1],
+        duration: 0.7,
+      },
+    },
+  };
+
+  return (
+    <motion.li
+      variants={mobileLinkVars}
+      initial="initial"
+      animate={inview ? "open" : "initial"}
+      className=" font-helvetica text-text_royal_green  "
+    >
+      {text}
+    </motion.li>
+  );
+};
 
 export default Facilities;

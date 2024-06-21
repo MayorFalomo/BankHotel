@@ -45,13 +45,13 @@ const Faq = (props: Props) => {
                 02
               </h3>
             </div>
-            <h3 className="scroll-m-20 text-4xl font-miracle font-normal tracking-[.10em] flex max-[780px]:hidden">
+            <h3 className="scroll-m-20 text-4xl max-[550px]:text-[24px] font-miracle font-normal tracking-[.10em] flex max-[780px]:hidden">
               02
             </h3>
-            <h3 className="scroll-m-20 text-4xl max-[780px]:text-[30px] font-miracle font-normal tracking-[.10em]">
+            <h3 className="scroll-m-20 text-4xl max-[780px]:text-[30px]  font-miracle font-normal tracking-[.10em]">
               Conference Hall{" "}
             </h3>
-            <span className="cursor-pointer">
+            <span className="">
               <svg
                 className="min-[900px]:w-[90px] max-[900px]:w-[60px] max-[780px]:hidden"
                 width="43"
@@ -78,12 +78,12 @@ const Faq = (props: Props) => {
             </span>
           </div>
 
-          <div className="flex justify-between items-center w-full border-b-2 pb-[25px] gap-[10px] max-[780px]:flex-col">
-            <div className="flex items-start justify-between max-[780px]:w-full gap-[20px]">
+          <div className="flex justify-between items-center mx-auto w-full border-b-2 pb-[25px] gap-[10px] max-[780px]:flex-col">
+            <div className="flex items-start justify-between max-[780px]:w-full gap-[10px]">
               <div className="w-[250px] max-[780px]:mx-auto">
                 <img src="./drink_chairs.webp" alt="img" />
               </div>
-              <h3 className="scroll-m-20 text-4xl max-[780px]:text-[30px] font-miracle font-normal tracking-[.10em] hidden max-[780px]:flex max-[780px]:text-end">
+              <h3 className="scroll-m-20 text-4xl max-[780px]:text-[30px] max-[550px]:text-[24px] font-miracle font-normal tracking-[.10em] hidden max-[780px]:flex max-[780px]:text-end">
                 03
               </h3>
             </div>
@@ -93,7 +93,7 @@ const Faq = (props: Props) => {
             <h3 className="scroll-m-20 text-4xl max-[780px]:text-[30px] font-miracle font-normal tracking-[.10em]">
               Wine Bar "Reserve
             </h3>
-            <span className="cursor-pointer">
+            <span className="">
               <svg
                 className="min-[900px]:w-[90px] max-[900px]:w-[60px] max-[780px]:hidden"
                 width="43"

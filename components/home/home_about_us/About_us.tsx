@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { AnimatePresence, motion } from "framer-motion";
 import MaskText from "@/components/animation/MaskText";
+import TextMask from "@/components/animation/TextMask";
 
 type Props = {};
 
@@ -71,6 +72,17 @@ const About_us = (props: Props) => {
                     <h2 className="font-miracle scroll-m-20 text-2xl font-semibold tracking-[.10em]">
                       High Quality{" "}
                     </h2>
+                    {/* <TextMask
+                      inview={inView2}
+                      text=""
+                      customStyles="w-[100%]  md:w-[80%] max-sm:w-[100%]  max-xl:w-[90%] leading-7 [&:not(:first-child)]: mt-3 lg:text-[17px] sm:text-[16px] max-sm:text-[14px] font-helvetica"
+                    >
+                      The five-star Bank Hotel was reopened to visitors in 2016.
+                      The building was renovated and modernized to meet the
+                      expectations of the most demanding guests. We offer
+                      luxurious rooms, numerous facilities, and exceptional
+                      service.
+                    </TextMask> */}
                     <MaskText
                       inview={inView2}
                       customStyles="w-[100%]  md:w-[80%] max-sm:w-[100%]  max-xl:w-[90%] leading-7 [&:not(:first-child)]: mt-3 lg:text-[17px] sm:text-[16px] max-sm:text-[14px] font-helvetica"
