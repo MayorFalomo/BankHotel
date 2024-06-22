@@ -7,8 +7,6 @@ type Props = {};
 const GetInTouch = (props: Props) => {
   const route = usePathname();
 
-  console.log(route);
-
   return (
     <div
       className={`${route == "/facility" ? "bg-regal_green" : "bg-off-white"}

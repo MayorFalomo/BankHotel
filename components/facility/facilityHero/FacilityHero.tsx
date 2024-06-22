@@ -25,7 +25,7 @@ const FacilityHero = (props: Props) => {
             <div className="relative  z-[2]  max-[690px]:flex max-[690px]:justify-end max-[690px]:items-end max-[690px]:w-[300px] max-[690px]:ml-auto  max-[690px]:mt-[50px]">
               <TextMask
                 inView={inView}
-                customStyles="w-[400px] leading-7 text-white_text font-helvetica"
+                customStyles="w-[400px] max-[450px]:w-full leading-7 text-white_text font-helvetica"
               >
                 Bank Hotel proudly welcomes you to the Safe Restaurant, a place
                 where you will wish you could dine every day. The restaurant
