@@ -1,8 +1,15 @@
+import FadeInText from "@/components/animation/FadeInText";
 import React from "react";
+import { useInView } from "react-intersection-observer";
 
 type Props = {};
 
 const RoomFacilities = (props: Props) => {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: false,
+  });
+
   return (
     <div className="bg-off-white border-2 border-transparent">
       <div className="max-[890px]:flex-col  flex items-start justify-between gap-[30px] w-[80%] max-[1100px]:w-[95%] mx-auto mt-[100px]">
@@ -17,12 +24,17 @@ const RoomFacilities = (props: Props) => {
               alt="img"
             />
           </div>
-          <h3 className="font-miracle leading-8 text-[30px]">Superior Twin </h3>
-          <p className="max-[890px]:w-[80%] font-helvetica text-text_royal_green leading-8 scroll-m-20 text-[18px] font-normal tracking-tight[&:not(:first-child)]:mt-2">
+          <h3 ref={ref} className="font-miracle leading-8 text-[30px]">
+            Superior Twin{" "}
+          </h3>
+          <FadeInText
+            inView={inView}
+            style="max-[890px]:w-[80%] font-helvetica text-text_royal_green leading-8 scroll-m-20 text-[18px] font-normal tracking-tight[&:not(:first-child)]:mt-2"
+          >
             All rooms in Bank Hotel have a special charm achieved through a
             combination of modern functional design and original 20th century
             layout.{" "}
-          </p>
+          </FadeInText>
         </div>
 
         <div className="flex flex-col gap-[30px] 2xl:w-[500px] min-[890px]:w-[400px]">
@@ -30,14 +42,17 @@ const RoomFacilities = (props: Props) => {
             <img src="../3mirror-2.png" alt="webp" />
           </div>
           <div className="relative max-[890px]:w-[80%] mt-[20px]">
-            <p className=" font-helvetica text-text_royal_green leading-8 scroll-m-20 text-[18px] font-normal tracking-tight[&:not(:first-child)]:mt-2">
+            <FadeInText
+              inView={inView}
+              style=" font-helvetica text-text_royal_green leading-8 scroll-m-20 text-[18px] font-normal tracking-tight[&:not(:first-child)]:mt-2"
+            >
               The Superior twin includes two functional zones: a living room
               with the best Italian furniture, and an isolated cozy bedroom with
               a large bed. Here, you will find space both for work and
               comfortable rest. Hotel offers supreme comfort and outstanding
               24-hour room service to make sure that the time you spend here is
               enjoyable and pleasant.{" "}
-            </p>
+            </FadeInText>
             <img
               className="absolute right-[-50px] top-[-50px] w-[70px] min-[890px]:hidden"
               src="../label.png"

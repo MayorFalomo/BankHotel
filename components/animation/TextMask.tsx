@@ -1,25 +1,27 @@
 import { AnimatePresence, motion, Variant } from "framer-motion";
-import React from "react";
+import React, { memo } from "react";
 
 interface IProps {
   children: React.ReactNode | JSX.Element[] | JSX.Element;
-  text: string;
   customStyles?: string;
-  inview?: boolean;
+  inView?: boolean;
+  inView2?: boolean;
 }
 
 interface IChild {
   child: React.ReactNode;
+  customStyles?: string;
+  inView?: boolean;
+  viewed?: boolean;
 }
 interface IVariant {
   [key: string]: Variant;
 }
 
-const TextMask = (props: IProps) => {
+const TextMask = memo((props: IProps) => {
   const propArray = Array.isArray(props.children)
     ? props.children
     : [props.children];
-  console.log(propArray, "propArray");
 
   const containerVars: IVariant = {
     initial: {
@@ -46,16 +48,22 @@ const TextMask = (props: IProps) => {
             initial="initial"
             animate="open"
             key={index}
+            className=" overflow-hidden"
           >
-            <Staggered child={child} />
+            <Staggered
+              child={child}
+              inView={props.inView}
+              viewed={props.inView2}
+              customStyles={props.customStyles}
+            />
           </motion.ul>
         ))}
       </AnimatePresence>
     </div>
   );
-};
+});
 
-const Staggered = ({ child }: IChild) => {
+const Staggered = memo(({ child, customStyles, inView }: IChild) => {
   const mobileLinkVars: IVariant = {
     initial: {
       opacity: 0,
@@ -77,10 +85,15 @@ const Staggered = ({ child }: IChild) => {
   };
 
   return (
-    <motion.li variants={mobileLinkVars} initial="initial" animate="open">
+    <motion.li
+      className={`${customStyles} overflow-hidden`}
+      variants={mobileLinkVars}
+      initial="initial"
+      animate={inView ? "open" : "initial"}
+    >
       {child}
     </motion.li>
   );
-};
+});
 
 export default TextMask;

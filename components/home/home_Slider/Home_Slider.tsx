@@ -104,10 +104,18 @@ function Home_Slider(props: any) {
     }
   };
 
-  const { ref, inView, entry } = useInView({
+  const [ref, inView] = useInView({
     threshold: 0.3,
-    triggerOnce: false,
   });
+
+  const [ref2, inView2] = useInView({
+    threshold: 0.3,
+  });
+
+  // const { ref, inView, entry } = useInView({
+  //   threshold: 0.3,
+  //   triggerOnce: false,
+  // });
 
   return (
     <AnimatePresence>
@@ -165,10 +173,25 @@ function Home_Slider(props: any) {
                   />
                 </div>
                 <div
+                  ref={ref2}
                   onClick={() => swipeToImage(1)}
                   className="max-[800px]:hidden flex absolute bottom-0 left-0 xl:w-[80px] md:w-[60px] w-[40px] cursor-pointer "
                 >
-                  <img src="./btn-wavy-black.webp" alt="img" />
+                  <motion.img
+                    initial={{
+                      rotate: -180,
+                    }}
+                    animate={{
+                      rotate: inView2 ? 0 : -180,
+                      transition: {
+                        type: "spring",
+                        // ease: [0.56, 0.03, 0.12, 1.04],
+                        // duration: 1,
+                      },
+                    }}
+                    src="./btn-wavy-black.webp"
+                    alt="img"
+                  />
                 </div>
                 <div
                   onClick={() => swipeToImage(1)}
