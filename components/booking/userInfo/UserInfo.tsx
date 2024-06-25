@@ -61,7 +61,7 @@ const UserInfo = (props: Props) => {
     <div className="w-full h-full ">
       <div className="w-full h-full flex justify-between items-center gap-2">
         <div className=" h-full w-full flex flex-col  bg-white items-center justify-center  ">
-          <div className="w-[70%]  flex flex-col gap-3">
+          <div className="w-[70%]  flex flex-col gap-3 max-[750px]:w-[80%]  max-[500px]:w-[90%]  max-[750px]:m-auto">
             <h2 className=" w-full text-text_royal_green text-[20px]">
               Please enter your booking details{" "}
             </h2>

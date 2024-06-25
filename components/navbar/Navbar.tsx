@@ -9,7 +9,7 @@ const Navbar = () => {
   const [menuState, setMenuState] = useState<boolean>(false);
 
   return (
-    <nav className="bg-[#313F38] max-[1200px]:sticky top-0 left-0 z-30 w-full pb-1 text-white">
+    <nav className="bg-[#313F38] max-[1200px]:sticky top-0 left-0 z-30 w-full pb-1 border-[1px] border-transparent text-white">
       <div className="flex items-center justify-between m-[auto] py-1 w-[95%]">
         <h2 className="scroll-m-20  text-3xl font-semibold tracking-tight first:mt-2">
           BankHotel
