@@ -14,7 +14,7 @@ const Navbar = () => {
         <h2 className="scroll-m-20  text-3xl font-semibold tracking-tight first:mt-2">
           BankHotel
         </h2>
-        <ul className="flex items-center justify-around gap-[15px] w-[40%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
+        <ul className="flex items-center justify-around gap-[15px] w-[50%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
           <li className="cursor-pointer hover:text-golden_yellow transition-all">
             <Link href="/"> HOME</Link>
           </li>
@@ -27,9 +27,9 @@ const Navbar = () => {
           <li className="cursor-pointer hover:text-golden_yellow">
             <Link href="/facility"> FACILITIES </Link>
           </li>
-          {/* <li className="cursor-pointer hover:text-golden_yellow">
-            CONFERENCE HALL
-          </li> */}
+          <li className="cursor-pointer hover:text-golden_yellow">
+            <Link href="./booking"> BOOK A ROOM </Link>
+          </li>
           <li className="cursor-pointer hover:text-golden_yellow">
             <Link href="./contacts">CONTACTS </Link>
           </li>

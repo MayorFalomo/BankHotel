@@ -35,10 +35,10 @@ const MobileNav = React.memo((props: IMenuState) => {
       name: "Facilities",
       link: "/facility",
     },
-    // {
-    //   name: "Conference Hall",
-    //   link: "#",
-    // },
+    {
+      name: "Conference Hall",
+      link: "/booking",
+    },
     {
       name: "Contacts",
       link: "/contacts",

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import Footer from "@/components/footer/Footer";
 import Gallery from "@/components/home/gallery/Gallery";
 import GetInTouch from "@/components/get_in_touch/GetInTouch";
@@ -11,8 +11,6 @@ import HeroImage from "@/components/home/heroImage/HeroImage";
 import Facilities from "@/components/home/homeFacilities/Facilities";
 import Home_Slider from "@/components/home/home_Slider/Home_Slider";
 import About_us from "@/components/home/home_about_us/About_us";
-import Image from "next/image";
-import Lenis from "lenis";
 import FadeIn from "@/components/animation/FadeIn";
 import SmoothScroll from "@/components/animation/SmoothScroll";
 
