@@ -14,9 +14,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { AnimatePresence, motion } from "framer-motion";
+import FormAnimation from "@/components/animation/FormAnimation";
 
 type Props = {
-  activeForm: number;
+  // activeForm: number;
+  setActiveForm: (arg: number) => void;
 };
 
 const UserInfo = (props: Props) => {
@@ -24,9 +27,12 @@ const UserInfo = (props: Props) => {
     name: z.string().min(2, {
       message: "Name must be at least 2 characters.",
     }),
-    email: z.string().min(2, {
-      message: "Email must be at least 2 characters.",
-    }),
+    email: z
+      .string()
+      .min(2, {
+        message: "Email must be at least 2 characters.",
+      })
+      .email(),
     password: z
       .string()
       .min(2, {
@@ -55,13 +61,14 @@ const UserInfo = (props: Props) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values, "hello");
+    props.setActiveForm(2);
   }
 
   return (
-    <div className="w-full h-full ">
-      <div className="w-full h-full flex justify-between items-center gap-2">
-        <div className=" h-full w-full flex flex-col  bg-white items-center justify-center  ">
-          <div className="w-[70%]  flex flex-col gap-3 max-[750px]:w-[80%]  max-[500px]:w-[90%]  max-[750px]:m-auto">
+    <FormAnimation>
+      <div className="w-full mt-4 h-full">
+        <div className=" h-full w-full flex flex-col   bg-white items-center justify-center  ">
+          <div className="w-[70%] h-full flex flex-col gap-3 max-[750px]:w-[80%]  max-[500px]:w-[90%]  max-[750px]:m-auto">
             <h2 className=" w-full text-text_royal_green text-[20px]">
               Please enter your booking details{" "}
             </h2>
@@ -130,7 +137,7 @@ const UserInfo = (props: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </FormAnimation>
   );
 };
 
