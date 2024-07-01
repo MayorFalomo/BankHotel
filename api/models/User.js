@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+("mongoose");
+
 const UserSchema = new mongoose.Schema(
   {
-    _id: {
-      type: String,
-      required: false,
-    },
+    // _id: {
+    //   type: String,
+    //   required: false,
+    // },
     userId: {
       type: String,
       required: false,
@@ -29,6 +31,31 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    checkIn: {
+      type: String,
+      required: false,
+    },
+    checkOut: {
+      type: String,
+      required: false,
+    },
+    amount: {
+      type: Number,
+      required: false,
+    },
+    paymentStatus: {
+      type: String,
+      required: false,
+    },
+    roomDetails: [
+      // {
+      //   roomType: "",
+      //   numberOfRooms: "",
+      //   roomService: "",
+      //   roomDescription: "",
+      //   roomNumber: "",
+      // },
+    ],
   },
   { timestamps: true }
 );
