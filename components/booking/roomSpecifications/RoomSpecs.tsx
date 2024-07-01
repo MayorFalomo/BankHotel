@@ -27,14 +27,23 @@ import {
   FormLabel,
 } from "@/components/ui/form";
 import { toast } from "@/components/ui/use-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/app/GlobalRedux/store";
+import axios from "axios";
+import { setRoomDetails } from "@/app/GlobalRedux/features/user";
 type Props = {
   setActiveForm: (arg: number) => void;
 };
 
 const RoomSpecs = (props: Props) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { roomDetails, id } = useSelector(
+    (state: RootState) => state.userSlice?.value
+  );
+
   const roomSchema = z.object({
     numberOfRooms: z.string(),
-    roomSize: z.string(),
+    roomType: z.string(),
     // roomService: z.string(),
     roomService: z.enum(["Yes", "No", "Undecided"]),
     roomDescription: z.string().min(2, {
@@ -52,16 +61,35 @@ const RoomSpecs = (props: Props) => {
     resolver: zodResolver(roomSchema),
     defaultValues: {
       numberOfRooms: "",
-      roomSize: "",
+      roomType: "",
       roomService: "Yes",
       roomDescription: "",
     },
   });
 
-  function onSubmit(data: z.infer<typeof roomSchema>) {
+  async function onSubmit(data: z.infer<typeof roomSchema>) {
     console.log(data, "data");
-    props.setActiveForm(3);
+    dispatch(setRoomDetails(data));
+
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/room`,
+        data: {
+          id: id,
+          ...data,
+        },
+      });
+      console.log(response.data, "response");
+      if (response.data) {
+        props.setActiveForm(3);
+      }
+    } catch (error) {
+      console.log(error, "An error has occurred");
+    }
   }
+
+  console.log(roomDetails, "roomDetails");
 
   return (
     <FormAnimation>
@@ -97,7 +125,7 @@ const RoomSpecs = (props: Props) => {
 
           <FormField
             control={form.control}
-            name="roomSize"
+            name="roomType"
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Select a room size</FormLabel>

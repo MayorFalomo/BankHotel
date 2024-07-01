@@ -11,7 +11,7 @@ import React, { useState } from "react";
 type Props = {};
 
 const page = (props: Props) => {
-  const [activeForm, setActiveForm] = useState(3);
+  const [activeForm, setActiveForm] = useState(1);
   return (
     <FadeIn>
       <div className=" max-h-[100vh] overflow-hidden">

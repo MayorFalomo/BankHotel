@@ -24,12 +24,18 @@ import {
 } from "@/components/ui/popover";
 import { toast } from "@/components/ui/use-toast";
 import FormAnimation from "@/components/animation/FormAnimation";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/app/GlobalRedux/store";
+import axios from "axios";
 
 type Props = {
   setActiveForm: (arg: number) => void;
 };
 
 const Dates = (props: Props) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { id } = useSelector((state: RootState) => state.userSlice.value);
+
   const dateSchema = z.object({
     checkInDate: z.date({
       required_error: "A date of birth is required.",
@@ -44,17 +50,34 @@ const Dates = (props: Props) => {
     resolver: zodResolver(dateSchema),
   });
 
-  function onSubmit(data: z.infer<typeof dateSchema>) {
-    console.log(data, "date");
+  async function onSubmit(data: z.infer<typeof dateSchema>) {
+    console.log(id, "date");
+
+    try {
+      const response = await axios({
+        method: "post",
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/save-dates`,
+        data: { id, ...data },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(response, "res");
+      if (response.data) {
+        props.setActiveForm(4);
+      }
+    } catch (error) {
+      console.log(error, "An Error has occurred");
+    }
     props.setActiveForm(4);
-    toast({
-      title: "You submitted the following values:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    // toast({
+    //   title: "You submitted the following values:",
+    //   description: (
+    //     <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+    //       <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+    //     </pre>
+    //   ),
+    // });
   }
 
   return (
@@ -98,9 +121,9 @@ const Dates = (props: Props) => {
                         mode="single"
                         selected={field.value}
                         onSelect={field.onChange}
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
+                        // disabled={(date) =>
+                        //   date > new Date() || date < new Date("1900-01-01")
+                        // }
                         initialFocus
                       />
                     </PopoverContent>
@@ -139,9 +162,9 @@ const Dates = (props: Props) => {
                         mode="single"
                         selected={field.value}
                         onSelect={field.onChange}
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
+                        // disabled={(date) =>
+                        //   date > new Date() || date < new Date("1900-01-01")
+                        // }
                         initialFocus
                       />
                     </PopoverContent>

@@ -16,6 +16,15 @@ import {
 import { Input } from "@/components/ui/input";
 import { AnimatePresence, motion } from "framer-motion";
 import FormAnimation from "@/components/animation/FormAnimation";
+import {
+  getEmail,
+  getName,
+  getPassword,
+  getUserId,
+} from "@/app/GlobalRedux/features/user";
+import { AppDispatch, RootState } from "@/app/GlobalRedux/store";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 type Props = {
   // activeForm: number;
@@ -23,6 +32,11 @@ type Props = {
 };
 
 const UserInfo = (props: Props) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { name, email, password } = useSelector(
+    (state: RootState) => state.userSlice?.value
+  );
+
   const userSchema = z.object({
     name: z.string().min(2, {
       message: "Name must be at least 2 characters.",
@@ -53,15 +67,49 @@ const UserInfo = (props: Props) => {
     resolver: zodResolver(userSchema),
     defaultValues: {
       name: "",
+      email: "",
+      password: "",
     },
   });
 
+  //function to generate id
+  function dec2hex(dec: number) {
+    return dec.toString(16).padStart(2, "0");
+  }
+
+  // generateId :: Integer -> String
+  function generateId(len: number) {
+    var arr = new Uint8Array((len || 40) / 2);
+    window.crypto.getRandomValues(arr);
+    return Array.from(arr, dec2hex).join("");
+  }
+
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof userSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values, "hello");
-    props.setActiveForm(2);
+  async function onSubmit(values: z.infer<typeof userSchema>) {
+    const generatedId = generateId(24);
+    console.log(values, "submitted");
+    dispatch(getName(values.name));
+    dispatch(getName(values.email));
+    dispatch(getName(values.password));
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${process.env.NEXT_PUBLIC_BASE_URL}/create-user`,
+        data: {
+          ...values,
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(response.data, "response data");
+      if (response.data) {
+        dispatch(getUserId(response.data._id));
+        props.setActiveForm(2);
+      }
+    } catch (error) {
+      console.log(error, "This is Error");
+    }
   }
 
   return (
@@ -88,7 +136,11 @@ const UserInfo = (props: Props) => {
                           className=" bg-transparent"
                           placeholder="Enter your name"
                           {...field}
-                          // {...register("name")}
+                          // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                          //   dispatch(getName(e.target.value))
+                          // }
+                          // // {...register("name")}
+                          // value={name}
                         />
                       </FormControl>
                       <span>{errors.name && errors.name.message}</span>
@@ -106,6 +158,10 @@ const UserInfo = (props: Props) => {
                           className=" bg-transparent"
                           placeholder="Enter your email"
                           {...field}
+                          // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                          //   dispatch(getEmail(e.target.value))
+                          // }
+                          // value={email}
                         />
                       </FormControl>
                       <span>{errors.name && errors.name.message}</span>
@@ -117,12 +173,16 @@ const UserInfo = (props: Props) => {
                   name="password"
                   render={({ field }) => (
                     <FormItem className="flex flex-col gap-[3px]">
-                      <FormLabel>password</FormLabel>
+                      <FormLabel>Password</FormLabel>
                       <FormControl>
                         <Input
                           className=" bg-transparent"
-                          placeholder="Enter your Email"
+                          placeholder="Enter your Password"
                           {...field}
+                          // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                          //   dispatch(getPassword(e.target.value))
+                          // }
+                          // value={password}
                         />
                       </FormControl>
                       <span>{errors.name && errors.name.message}</span>
