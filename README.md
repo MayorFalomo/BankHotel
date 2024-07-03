@@ -5,6 +5,13 @@ A creative visual website I built for a mock Hotel called BankHotel, Guests can 
 ## Demo
 
 https://bankhotel-ng.netlify.app/
+
+## Screenshots
+
+![App Screenshot](http://res.cloudinary.com/dsghy4siv/image/upload/v1719998132/jnldmiiac9rzpdz5p2nb.png)
+
+![App Screenshot](https://res.cloudinary.com/dsghy4siv/image/upload/v1719998177/zpstfcptlfx6cewvtmrh.png)
+
 ## Tech Stack
 
 NextJs 14, Tailwind, Shadcn, Redux, React Hook Form, Zod, Node Js, MongoDb, Express
@@ -76,17 +83,6 @@ I used Next JS which is a lightweight fast frontend framework
 Code Reusabilty to avoid reusing code everywhere
 
 Used dynamic import for component using large bundles sizes 
-## Screenshots
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-
-
-![Logo](http://res.cloudinary.com/dsghy4siv/image/upload/v1719998132/jnldmiiac9rzpdz5p2nb.png)
-
-![Logo](https://res.cloudinary.com/dsghy4siv/image/upload/v1719998177/zpstfcptlfx6cewvtmrh.png)
-## Lessons Learned
-
-More Code Reusabilty techniques for animations with Typescript support
 
 ## Features
 
