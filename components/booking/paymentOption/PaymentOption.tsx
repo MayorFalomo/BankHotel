@@ -17,11 +17,12 @@ type Props = {
 
 const PaymentOption = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { id } = useSelector((state: RootState) => state.userSlice.value);
+  const { id, email } = useSelector(
+    (state: RootState) => state.userSlice.value
+  );
 
   const confirmPayment = async () => {
     const amount = 100;
-    const email = "user@gmail.com";
 
     const res = await axios({
       method: "GET",
