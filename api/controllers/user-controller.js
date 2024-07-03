@@ -1,18 +1,19 @@
 import User from "../models/User.js";
 
 export const newUserInfo = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, photo } = req.body;
 
   try {
     const user = {
       name,
       email,
       password,
+      profileDp: photo,
     };
-    // console.log(user, "users");
+
     const UserData = new User(user);
     const savedUser = await UserData.save();
-    // console.log(savedUser, "saved User");
+    console.log(savedUser, "saveduser");
     res.status(201).json(savedUser);
   } catch (error) {
     console.log(error);
@@ -35,8 +36,7 @@ export const usersRoomSpec = async (req, res) => {
       roomService,
       roomDescription,
     });
-    // console.log(updatedUser);
-    // console.log(user, "new user");
+
     await user.save();
     res.status(200).json("Saved successfully");
   } catch (error) {

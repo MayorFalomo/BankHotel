@@ -9,16 +9,11 @@
   "author": "mayor",
   "license": "ISC",
   "dependencies": {
-    "@apollo/server": "^4.10.4",
-    "apollo-server": "^3.13.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "graphql": "^16.9.0",
-    "graphql-tag": "^2.12.6",
     "https": "^1.0.0",
     "mongoose": "^8.4.3"
   },
-    "type":"module"
-
+  "type": "module"
 }

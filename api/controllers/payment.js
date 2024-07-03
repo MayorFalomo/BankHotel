@@ -43,7 +43,8 @@ export const handlePayments = async (req, res) => {
       });
     reqpaystack.write(params);
     reqpaystack.end();
-    console.log(reqpaystack, "reqpay");
+
+    // console.log(reqpaystack, "reqpay");
     user.paymentStatus = "paid";
     await user.save();
   } catch (error) {
