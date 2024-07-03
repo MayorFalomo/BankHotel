@@ -7,9 +7,7 @@ import RoomSpecs from "@/components/booking/roomSpecifications/RoomSpecs";
 import UserInfo from "@/components/booking/userInfo/UserInfo";
 import Navbar from "@/components/navbar/Navbar";
 import React, { useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import dynamic from "next/dynamic";

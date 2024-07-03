@@ -1,5 +1,4 @@
 import React from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import FormAnimation from "@/components/animation/FormAnimation";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";

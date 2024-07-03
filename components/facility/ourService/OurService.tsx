@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React from "react";
 import FadeInText from "@/components/animation/FadeInText";
 import { useInView } from "react-intersection-observer";
 
 type Props = {};
 
 const OurService = (props: Props) => {
-  const [expand, setExpand] = useState(false);
-  const [expanded, setExpanded] = useState(false);
   const [ref, inView] = useInView({
     threshold: 0.3,
   });
