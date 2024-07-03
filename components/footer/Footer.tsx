@@ -42,14 +42,22 @@ const Footer: React.FC = (props: Props) => {
             </span>
           </div>
         </div>
-        <div className="flex flex-col gap-[20px] max-[480px]:hidden">
-          <h3 className="text-xl">SOCIAL</h3>
+        <div className="flex flex-col gap-[40px] max-[480px]:hidden">
+          <div className="flex flex-col gap-[20px] max-[480px]:hidden">
+            <h3 className="text-xl">SOCIAL</h3>
 
-          <ul className="flex items-center gap-[30px]">
-            <li className="cursor-pointer">FACEBOOK </li>
-            <li className="cursor-pointer">INSTAGRAM </li>
-            <li className="cursor-pointer">TWITTER </li>
-          </ul>
+            <ul className="flex items-center gap-[30px]">
+              <li className="cursor-pointer">FACEBOOK </li>
+              <li className="cursor-pointer">INSTAGRAM </li>
+              <li className="cursor-pointer">TWITTER </li>
+            </ul>
+          </div>
+          <p className="opacity-[0.4]  mt-6 font-helvetica">
+            Designed by{" "}
+            <a target="_blank" href="https://www.figma.com/@future2">
+              Andrew Vynarchyk
+            </a>{" "}
+          </p>
         </div>
         <div className="w-full max-[480px]:block hidden">
           <div className="h-[1px] w-full bg-gray-200 hidden "> </div>

@@ -36,7 +36,7 @@ const MobileNav = React.memo((props: IMenuState) => {
       link: "/facility",
     },
     {
-      name: "Conference Hall",
+      name: "Book a room",
       link: "/booking",
     },
     {

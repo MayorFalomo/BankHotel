@@ -174,13 +174,13 @@ const UserInfo = (props: Props) => {
                     </FormItem>
                   )}
                 />
-                {/* <FormField
+                <FormField
                   control={form.control}
                   name="photo"
                   render={({ field }) => (
                     <FormItem className="flex flex-col gap-[3px]">
                       <div className="grid w-full max-w-sm items-center gap-1.5">
-                        <Label htmlFor="picture">Picture</Label>
+                        {/* <Label htmlFor="picture">Picture</Label> */}
                         <Input
                           id="picture"
                           onChange={(e) => uploadImage(e.target.files)}
@@ -190,7 +190,7 @@ const UserInfo = (props: Props) => {
                       <span>{errors.name && errors.name.message}</span>
                     </FormItem>
                   )}
-                /> */}
+                />
                 <Button className="flex ml-auto" type="submit">
                   Next
                 </Button>

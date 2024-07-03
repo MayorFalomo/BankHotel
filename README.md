@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+#BankHotel
 
-First, run the development server:
+A creative visual website I built for a mock Hotel called BankHotel, Guests can book hotel rooms with custom specified preferences, Payment integration using Paystack API, an option to download a generated pdf copy containing all your booking Info, a multistep form. I paid particular attention to the performance, code reusability, UI while maintaining a seamless user experience.
+## Demo
+
+https://bankhotel-ng.netlify.app/
+## Tech Stack
+
+NextJs 14, Tailwind, Shadcn, Redux, React Hook Form, Zod, Node Js, MongoDb, Express
+
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## Support
+
+For support, email mayorfalomo@gmail.com or contact me via any platform.
+
+
+## Deployment
+
+To deploy this project run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Skills
+Javascript, HTML, CSS...
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+React, Next Js, Typescript, Vue js...
 
-## Learn More
+Css, Scss , Tailwind, Shadcn, Chakra Ui, Styled Components, Material UI
 
-To learn more about Next.js, take a look at the following resources:
+Node Js, Express, MongoDb, GraphQL, Apollo server...
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Firebase.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Redux
+## Run Locally
 
-## Deploy on Vercel
+Clone the project
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+  git clone https://link-to-project
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+
+## Optimizations
+
+I used Next JS which is a lightweight fast frontend framework
+
+Code Reusabilty to avoid reusing code everywhere
+
+Used dynamic import for component using large bundles sizes 
+## Screenshots
+
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
+
+![Logo](http://res.cloudinary.com/dsghy4siv/image/upload/v1719998132/jnldmiiac9rzpdz5p2nb.png)
+
+![Logo](https://res.cloudinary.com/dsghy4siv/image/upload/v1719998177/zpstfcptlfx6cewvtmrh.png)
+## Lessons Learned
+
+More Code Reusabilty techniques for animations with Typescript support
+
+## Features
+
+- Hotel Room Booking
+- Payment Integration.
+- Generate Booking Info in a PDF.
+- Download PDF on your Info.
+- Cool looking animations.
+- Smooth Scrolling.
+- Smooth Page Transitions.
