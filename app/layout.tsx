@@ -1,23 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// import { localFont } from "@next/font/local";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// const miracle = localFont({
-//   src: [
-//     {
-//       path: "./Miracle400.otf",
-//       weight: "400",
-//       style: "normal",
-//       display: "swap",
-//     },
-//   ],
-//   variable: "--font-miracle",
-// });
 export const metadata: Metadata = {
   title: "BankHotel",
   description: "Developed by Web Wizard",

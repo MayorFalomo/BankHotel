@@ -22,11 +22,12 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { toast } from "@/components/ui/use-toast";
+// import { toast } from "@/components/ui/use-toast";
 import FormAnimation from "@/components/animation/FormAnimation";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/app/GlobalRedux/store";
 import axios from "axios";
+import { getCheckIn, getCheckOut } from "@/app/GlobalRedux/features/user";
 
 type Props = {
   setActiveForm: (arg: number) => void;
@@ -50,9 +51,10 @@ const Dates = (props: Props) => {
     resolver: zodResolver(dateSchema),
   });
 
+  //Function to handle form
   async function onSubmit(data: z.infer<typeof dateSchema>) {
-    console.log(id, "date");
-
+    dispatch(getCheckIn(data?.checkInDate.toISOString()));
+    dispatch(getCheckOut(data?.checkOutDate.toISOString()));
     try {
       const response = await axios({
         method: "post",
@@ -62,7 +64,6 @@ const Dates = (props: Props) => {
           "Content-Type": "application/json",
         },
       });
-      console.log(response, "res");
       if (response.data) {
         props.setActiveForm(4);
       }

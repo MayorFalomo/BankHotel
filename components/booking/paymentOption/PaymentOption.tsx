@@ -1,4 +1,8 @@
-import { getPaymentStatus } from "@/app/GlobalRedux/features/user";
+import {
+  getAmount,
+  getPaymentMethod,
+  getPaymentStatus,
+} from "@/app/GlobalRedux/features/user";
 import { AppDispatch, RootState } from "@/app/GlobalRedux/store";
 import FormAnimation from "@/components/animation/FormAnimation";
 import { Button } from "@/components/ui/button";
@@ -13,14 +17,11 @@ type Props = {
 
 const PaymentOption = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { id, paymentStatus } = useSelector(
-    (state: RootState) => state.userSlice.value
-  );
+  const { id } = useSelector((state: RootState) => state.userSlice.value);
 
   const confirmPayment = async () => {
     const amount = 100;
     const email = "user@gmail.com";
-    console.log(email, "email");
 
     const res = await axios({
       method: "GET",
@@ -39,7 +40,7 @@ const PaymentOption = (props: Props) => {
       window.location.href = response;
     }
   };
-  // console.log(email);
+
   return (
     <FormAnimation>
       <div className="w-[70%] m-auto">
@@ -63,7 +64,20 @@ const PaymentOption = (props: Props) => {
           <Button onClick={confirmPayment} className="w-full my-1">
             Proceed to payments{" "}
           </Button>
-          <p className="text-center">pay with cash instead? </p>
+          <p className="text-center">
+            Pay with cash instead?{" "}
+            <span
+              className="cursor-pointer text-blue-600"
+              onClick={() => {
+                dispatch(getAmount("10000"));
+                dispatch(getPaymentMethod("Cash"));
+                dispatch(getPaymentStatus("Processing"));
+                props.setActiveForm(5);
+              }}
+            >
+              Generate Receipt{" "}
+            </span>{" "}
+          </p>
         </div>
       </div>
     </FormAnimation>

@@ -18,6 +18,7 @@ interface userState {
     checkOut?: string;
     amount?: string;
     paymentStatus?: string;
+    paymentMethod?: string;
     roomDetails?: RoomState[]
 }
 
@@ -33,6 +34,7 @@ const initialState: userState = {
     checkOut: "",
     amount: "",
     paymentStatus: "",
+    paymentMethod: "",
     roomDetails: [
         {
             roomType: "",
@@ -62,6 +64,9 @@ export const userSlice = createSlice({
         getPassword: (state, action: PayloadAction<string>) => {
             state.value.password = action.payload
         },
+        getPhoto: (state, action: PayloadAction<string>) => {
+            state.value.photo = action.payload
+        },
         getCheckIn: (state, action: PayloadAction<string>) => { 
             state.value.checkIn = action.payload
         },
@@ -74,12 +79,15 @@ export const userSlice = createSlice({
         getPaymentStatus: (state, action: PayloadAction<string>) => { 
             state.value.paymentStatus = action.payload
         },
+        getPaymentMethod: (state, action: PayloadAction<string>) => { 
+            state.value.paymentMethod = action.payload
+        },
         setRoomDetails: (state, action: PayloadAction<RoomState>) => { 
             state.value.roomDetails = [action.payload]
         }
     },
 });
 
-export const {getUserId, getName, getEmail, getPassword, getCheckIn, getCheckOut, getAmount, getPaymentStatus, setRoomDetails } = userSlice.actions;
+export const {getUserId, getName, getEmail, getPassword, getPhoto, getCheckIn, getCheckOut, getAmount, getPaymentStatus, getPaymentMethod, setRoomDetails } = userSlice.actions;
 
 export default userSlice.reducer;

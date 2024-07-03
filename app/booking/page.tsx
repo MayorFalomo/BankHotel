@@ -7,11 +7,71 @@ import RoomSpecs from "@/components/booking/roomSpecifications/RoomSpecs";
 import UserInfo from "@/components/booking/userInfo/UserInfo";
 import Navbar from "@/components/navbar/Navbar";
 import React, { useState } from "react";
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
 type Props = {};
 
+const PDFGenerator = dynamic(
+  () => import("../../components/booking/pdfHandler/PDFGenerator"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex justify-center items-center h-full w-full">
+        {" "}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={cn("animate-spin")}
+        >
+          <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+        </svg>
+      </div>
+    ),
+  }
+);
+
 const page = (props: Props) => {
-  const [activeForm, setActiveForm] = useState(1);
+  const [activeForm, setActiveForm] = useState<number>(1);
+  const [carousel, setCarousel] = useState<AliceCarousel | null>(null);
+  const handleDragStart = (e: React.DragEvent) => e.preventDefault();
+  const items = [
+    <img
+      className="h-full object-cover object-bottom w-full"
+      src="./bigger-copenhagen.webp"
+      alt="img"
+    />,
+    <img
+      className="h-full  object-bottom w-full"
+      src="./space-copenhagen.webp"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      className="h-full object-cover object-bottom w-full"
+      src="./room-image.webp"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      className="h-full object-cover object-bottom w-full"
+      src="./3mirror-2.png"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+  ];
+
   return (
     <FadeIn>
       <div className=" max-h-[100vh] overflow-hidden">
@@ -23,15 +83,17 @@ const page = (props: Props) => {
             {activeForm == 2 && <RoomSpecs setActiveForm={setActiveForm} />}
             {activeForm == 3 && <Dates setActiveForm={setActiveForm} />}
             {activeForm == 4 && <PaymentOption setActiveForm={setActiveForm} />}
+            {activeForm == 5 && <PDFGenerator setActiveForm={setActiveForm} />}
           </div>
-          <div className="w-[50vw] h-[90vh]  max-[750px]:w-full min-[750px]:flex max-[750px]:hidden">
-            <div className="h-full w-full max-[750px]:hidden">
-              <img
-                className="h-full"
-                src="./bigger-copenhagen.webp"
-                alt="img"
-              />
-            </div>
+          <div className=" min-[750px]:w-[50vw] w-[100%] h-[90vh] max-[750px]:w-full min-[750px]:flex max-[750px]:hidden">
+            <AliceCarousel
+              mouseTracking
+              animationType="fadeout"
+              autoPlay={true}
+              autoPlayInterval={3000}
+              infinite={true}
+              items={items}
+            />
           </div>
         </div>
       </div>

@@ -18,6 +18,7 @@ const Faq = (props: Props) => {
               <h2 className="flex flex-col gap-[5px] items-start scroll-m-20 pb-2 text-5xl font-miracle font-normal tracking-[.10em] first:mt-0">
                 <span>Ice</span> <span>Restaurant</span>
               </h2>
+
               <p className="leading-7 font-helvetica [&:not(:first-child)]:mt-2">
                 The hotel’s exclusive infrastructure is complemented by the
                 unique atmosphere of the Safe Restaurant. Author’s menu,

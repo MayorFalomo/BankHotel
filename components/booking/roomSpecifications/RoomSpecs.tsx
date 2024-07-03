@@ -44,7 +44,6 @@ const RoomSpecs = (props: Props) => {
   const roomSchema = z.object({
     numberOfRooms: z.string(),
     roomType: z.string(),
-    // roomService: z.string(),
     roomService: z.enum(["Yes", "No", "Undecided"]),
     roomDescription: z.string().min(2, {
       message: "Description must be at least 2 characters.",
@@ -68,7 +67,6 @@ const RoomSpecs = (props: Props) => {
   });
 
   async function onSubmit(data: z.infer<typeof roomSchema>) {
-    console.log(data, "data");
     dispatch(setRoomDetails(data));
 
     try {
@@ -80,7 +78,7 @@ const RoomSpecs = (props: Props) => {
           ...data,
         },
       });
-      console.log(response.data, "response");
+
       if (response.data) {
         props.setActiveForm(3);
       }
@@ -88,8 +86,6 @@ const RoomSpecs = (props: Props) => {
       console.log(error, "An error has occurred");
     }
   }
-
-  console.log(roomDetails, "roomDetails");
 
   return (
     <FormAnimation>

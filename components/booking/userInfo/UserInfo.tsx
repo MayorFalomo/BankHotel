@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -7,23 +7,20 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { AnimatePresence, motion } from "framer-motion";
 import FormAnimation from "@/components/animation/FormAnimation";
 import {
   getEmail,
   getName,
-  getPassword,
+  getPhoto,
   getUserId,
 } from "@/app/GlobalRedux/features/user";
-import { AppDispatch, RootState } from "@/app/GlobalRedux/store";
-import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch } from "@/app/GlobalRedux/store";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 
 type Props = {
@@ -33,9 +30,7 @@ type Props = {
 
 const UserInfo = (props: Props) => {
   const dispatch = useDispatch<AppDispatch>();
-  const { name, email, password } = useSelector(
-    (state: RootState) => state.userSlice?.value
-  );
+  const [picture, setPicture] = useState<string>("");
 
   const userSchema = z.object({
     name: z.string().min(2, {
@@ -55,6 +50,7 @@ const UserInfo = (props: Props) => {
       .max(20, {
         message: "Password cannot be more than 20 chars",
       }),
+    photo: z.optional(z.string()),
   });
 
   type UserType = z.infer<typeof userSchema>;
@@ -69,42 +65,40 @@ const UserInfo = (props: Props) => {
       name: "",
       email: "",
       password: "",
+      photo: "",
     },
   });
 
-  //function to generate id
-  function dec2hex(dec: number) {
-    return dec.toString(16).padStart(2, "0");
-  }
-
-  // generateId :: Integer -> String
-  function generateId(len: number) {
-    var arr = new Uint8Array((len || 40) / 2);
-    window.crypto.getRandomValues(arr);
-    return Array.from(arr, dec2hex).join("");
-  }
+  const uploadImage = (files: any) => {
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "t3dil6ur");
+    axios
+      .post(`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}/image/upload`, formData)
+      .then((res) => setPicture(res.data.url))
+      .catch((err) => console.log(err));
+  };
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof userSchema>) {
-    const generatedId = generateId(24);
-    console.log(values, "submitted");
     dispatch(getName(values.name));
-    dispatch(getName(values.email));
-    dispatch(getName(values.password));
+    dispatch(getEmail(values.email));
     try {
       const response = await axios({
         method: "POST",
         url: `${process.env.NEXT_PUBLIC_BASE_URL}/create-user`,
         data: {
           ...values,
+          photo: picture,
         },
         headers: {
           "Content-Type": "application/json",
         },
       });
-      console.log(response.data, "response data");
+
       if (response.data) {
         dispatch(getUserId(response.data._id));
+        dispatch(getPhoto(picture));
         props.setActiveForm(2);
       }
     } catch (error) {
@@ -136,11 +130,6 @@ const UserInfo = (props: Props) => {
                           className=" bg-transparent"
                           placeholder="Enter your name"
                           {...field}
-                          // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                          //   dispatch(getName(e.target.value))
-                          // }
-                          // // {...register("name")}
-                          // value={name}
                         />
                       </FormControl>
                       <span>{errors.name && errors.name.message}</span>
@@ -179,16 +168,29 @@ const UserInfo = (props: Props) => {
                           className=" bg-transparent"
                           placeholder="Enter your Password"
                           {...field}
-                          // onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                          //   dispatch(getPassword(e.target.value))
-                          // }
-                          // value={password}
                         />
                       </FormControl>
                       <span>{errors.name && errors.name.message}</span>
                     </FormItem>
                   )}
                 />
+                {/* <FormField
+                  control={form.control}
+                  name="photo"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col gap-[3px]">
+                      <div className="grid w-full max-w-sm items-center gap-1.5">
+                        <Label htmlFor="picture">Picture</Label>
+                        <Input
+                          id="picture"
+                          onChange={(e) => uploadImage(e.target.files)}
+                          type="file"
+                        />
+                      </div>
+                      <span>{errors.name && errors.name.message}</span>
+                    </FormItem>
+                  )}
+                /> */}
                 <Button className="flex ml-auto" type="submit">
                   Next
                 </Button>

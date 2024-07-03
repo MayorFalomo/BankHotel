@@ -4,6 +4,7 @@ import React, { ReactNode, useRef } from "react";
 import { GiGooeyEyedSun } from "react-icons/gi";
 import { TbNorthStar } from "react-icons/tb";
 import { motion, Variant } from "framer-motion";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 interface Variants {
   [key: string]: Variant;
@@ -103,7 +104,9 @@ const HeroHeader = () => {
               <span className="">1973 </span>
             </button>
             <div className="cursor-pointer min-[100px]:w-[30px] min-[650px]:w-[40px] min-[1200px]:w-[50px] max-[800px]:hidden">
-              <img src="/wavy.webp" alt="img" />
+              <AnchorLink href="#things">
+                <img src="/wavy.webp" alt="img" />
+              </AnchorLink>
             </div>
           </div>
           {/* <SplitText
