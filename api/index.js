@@ -21,6 +21,10 @@ mongoose
     console.log(err);
   });
 
+app.get("/", (req, res) => {
+  res.send("Welcome to Express & TypeScript Server");
+});
+
 app.use("/api", userRouter);
 app.use("/api", paymentRouter);
 
