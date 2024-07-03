@@ -14,19 +14,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
 } from "@/components/ui/form";
-import { toast } from "@/components/ui/use-toast";
+// import { toast } from "@/components/ui/use-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/app/GlobalRedux/store";
 import axios from "axios";
@@ -92,9 +90,9 @@ const RoomSpecs = (props: Props) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-3 w-[70%] m-auto"
+          className="space-y-3 min-[600px]:w-[70%] m-auto max-[500px]:my-[20px] max-[600px]:w-[90%] overflow-auto font-helvetica "
         >
-          <h2 className="scroll-m-20 text-2xl text-text_royal_green font-semibold tracking-tight">
+          <h2 className="scroll-m-20 text-2xl text-text_royal_green font-helvetica font-semibold tracking-tight">
             {" "}
             Room Specifications
           </h2>
@@ -109,7 +107,6 @@ const RoomSpecs = (props: Props) => {
                     className=" bg-transparent"
                     placeholder="Enter number"
                     {...field}
-                    // {...register("name")}
                   />
                 </FormControl>
                 <span>

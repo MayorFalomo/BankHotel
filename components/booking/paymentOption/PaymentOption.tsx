@@ -43,12 +43,12 @@ const PaymentOption = (props: Props) => {
 
   return (
     <FormAnimation>
-      <div className="w-[70%] m-auto">
-        <h2 className="scroll-m-20 text-2xl text-text_royal_green font-semibold mb-3 tracking-tight">
+      <div className="min-[600px]:w-[70%] max-[600px]:w-[90%] m-auto">
+        <h2 className=" font-helvetica scroll-m-20 text-2xl text-text_royal_green font-semibold mb-3 tracking-tight">
           Choose a payment Option
         </h2>
         <div className="my-3 flex flex-col gap-3">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex font-helvetica items-center justify-between gap-2">
             <p>Total </p>
             <p> NGN10,000 </p>
           </div>
@@ -64,10 +64,10 @@ const PaymentOption = (props: Props) => {
           <Button onClick={confirmPayment} className="w-full my-1">
             Proceed to payments{" "}
           </Button>
-          <p className="text-center">
+          <p className="text-center font-helvetica">
             Pay with cash instead?{" "}
             <span
-              className="cursor-pointer text-blue-600"
+              className="cursor-pointer  text-blue-600"
               onClick={() => {
                 dispatch(getAmount("10000"));
                 dispatch(getPaymentMethod("Cash"));

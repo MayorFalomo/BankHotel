@@ -83,7 +83,7 @@ const Dates = (props: Props) => {
 
   return (
     <FormAnimation>
-      <div className="flex flex-col h-full items-center justify-center m-auto">
+      <div className="flex flex-col h-full w-[90%] items-center justify-center m-auto">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
