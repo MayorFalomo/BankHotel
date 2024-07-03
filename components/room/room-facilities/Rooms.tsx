@@ -9,6 +9,10 @@ const RoomFacilities = (props: Props) => {
     threshold: 0.3,
     triggerOnce: false,
   });
+  const [ref1, inView1] = useInView({
+    threshold: 0.3,
+    triggerOnce: false,
+  });
 
   return (
     <div className="bg-off-white border-2 border-transparent">
@@ -41,9 +45,9 @@ const RoomFacilities = (props: Props) => {
           <div className="w-full">
             <img src="../3mirror-2.png" alt="webp" />
           </div>
-          <div className="relative max-[890px]:w-[80%] mt-[20px]">
+          <div ref={ref1} className="relative max-[890px]:w-[80%] mt-[20px]">
             <FadeInText
-              inView={inView}
+              inView={inView1}
               style=" font-helvetica text-text_royal_green leading-8 scroll-m-20 text-[18px] font-normal tracking-tight[&:not(:first-child)]:mt-2"
             >
               The Superior twin includes two functional zones: a living room

@@ -31,12 +31,12 @@ const Restaurant = (props: Props) => {
             <div className="w-full max-[700px]:w-[90%]">
               <img src="../comfy-area.png" alt="img" />
             </div>
-            <div className="flex flex-col gap-[10px] items-start max-[700px]:w-[400px] max-[700px]:ml-auto">
+            <div className="flex flex-col gap-[10px] items-start max-[700px]:w-[400px]  max-[500px]:w-[95%] min-[700px]:ml-auto">
               <h2 className=" font-miracle capitalize text-white_text text-[32px]">
                 {" "}
                 Spend your time with us
               </h2>
-              <p className=" w-[400px] text-white_text leading-7 font-helvetica">
+              <p className="min-[600px]:w-[400px] max-[600px]:w-[95%] text-white_text leading-7 font-helvetica">
                 If you are looking for an exclusive place to have a romantic
                 dinner, organize a business meeting, or spend an enjoyable
                 evening with friends, visit Safe Restaurant in Bank Hotel. With
