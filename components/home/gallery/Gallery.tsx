@@ -2,7 +2,6 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import { AnimatePresence, motion, Variant } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 type Props = {};
 
 interface IHead {
@@ -51,7 +50,6 @@ const Gallery: React.FC = (props: Props) => {
                 <img src="./label-logo.webp" alt="img" />
               </div>
               {
-                // <AnimatePresence mode="wait">
                 <motion.div className="w-[100%]">
                   {heading.map((text: any, i: number) => {
                     return (
@@ -61,7 +59,6 @@ const Gallery: React.FC = (props: Props) => {
                     );
                   })}
                 </motion.div>
-                // </AnimatePresence>
               }
 
               <p className="w-[370px] leading-7 [&:not(:first-child)]:mt-6 font-helvetica text-white text-center ">

@@ -14,7 +14,7 @@ https://bankhotel-ng.netlify.app/
 
 ## Tech Stack
 
-NextJs 14, Tailwind, Shadcn, Redux, React Hook Form, Zod, Node Js, MongoDb, Express
+NextJs 14, Typescript, Tailwind, ShadCn, Redux, React Hook Form, Zod, Node Js, MongoDb, Express
 
 
 
