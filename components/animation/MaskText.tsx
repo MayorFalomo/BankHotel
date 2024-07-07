@@ -28,6 +28,7 @@ const MaskText = (props: IProps) => {
       <motion.div className="w-[100%]">
         {textProps.map((text, i) => (
           <TextMask
+            key={i}
             text={text}
             i={i}
             inview={props.inview}

@@ -1,20 +1,10 @@
 import React, { useState } from "react";
 import { TbNorthStar } from "react-icons/tb";
-import Image1 from "../../../public/mirror-image.webp";
-import Image2 from "../../../public/bigger-copenhagen.webp";
-import Image3 from "../../../public/space-copenhagen.webp";
-import Image4 from "../../../public/cheng-chung.webp";
-import { AnimatePresence, motion } from "framer-motion";
-import Slider from "react-slick";
+import { AnimatePresence, PanInfo, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-
 import { wrap } from "@popmotion/popcorn";
-import { StaticImageData } from "next/image";
-import FadeIn from "@/components/animation/FadeIn";
 import FadeInText from "@/components/animation/FadeInText";
 import FadeInTextHeader from "@/components/animation/FadeInTextHeader";
-
-type Props = {};
 
 interface ISlider {
   id: number;
@@ -81,12 +71,30 @@ function Home_Slider(props: any) {
         "The Superior twin is perfect for those who plan to stay long. The spacious and bright room is equipped with deluxe Italian furniture and has a beautiful view to the historical part of the city. Stylish interior design and comfortable beds will make your stay cozy and pleasant.",
     },
   ]);
-  const [slideIndex, setSlideIndex] = useState<number>(0);
 
   const [[imageCount, direction], setImageCount] = useState<[number, number]>([
     0,
     0,
   ]);
+
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  const handleTouchStart = (event: React.TouchEvent) => {
+    setTouchStartX(event.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent) => {
+    if (touchStartX !== null) {
+      const touchEndX = event.changedTouches[0].clientX;
+      const swipeThreshold = 50;
+      if (touchEndX - touchStartX > swipeThreshold) {
+        swipeToImage(-1);
+      } else if (touchEndX - touchStartX < -swipeThreshold) {
+        swipeToImage(1);
+      }
+      setTouchStartX(null);
+    }
+  };
 
   const swipeToImage = (swipeDirection: number) => {
     setImageCount([imageCount + swipeDirection, swipeDirection]);
@@ -94,8 +102,11 @@ function Home_Slider(props: any) {
 
   const index = wrap(0, sliderContent.length, imageCount);
 
-  const dragEndHandler = (dragInfo: any) => {
-    const draggedDistance = dragInfo.offset.x;
+  const dragEndHandler = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo
+  ) => {
+    const draggedDistance = info.offset.x;
     const swipeThreshold = 50;
     if (draggedDistance > swipeThreshold) {
       swipeToImage(-1);
@@ -103,6 +114,16 @@ function Home_Slider(props: any) {
       swipeToImage(1);
     }
   };
+
+  // const dragEndHandler = (dragInfo: any) => {
+  //   const draggedDistance = dragInfo.offset.x;
+  //   const swipeThreshold = 50;
+  //   if (draggedDistance > swipeThreshold) {
+  //     swipeToImage(-1);
+  //   } else if (draggedDistance < -swipeThreshold) {
+  //     swipeToImage(1);
+  //   }
+  // };
 
   const [ref, inView] = useInView({
     threshold: 0.3,
@@ -112,10 +133,9 @@ function Home_Slider(props: any) {
     threshold: 0.3,
   });
 
-  // const { ref, inView, entry } = useInView({
-  //   threshold: 0.3,
-  //   triggerOnce: false,
-  // });
+  const [ref3, inView3] = useInView({
+    threshold: 0.4,
+  });
 
   return (
     <AnimatePresence>
@@ -194,10 +214,20 @@ function Home_Slider(props: any) {
                   />
                 </div>
                 <div
+                  ref={ref3}
                   onClick={() => swipeToImage(1)}
                   className=" hidden max-[800px]:flex xl:w-[80px] max-xl:w-[60px] cursor-pointer "
                 >
-                  <img
+                  <motion.img
+                    initial={{
+                      rotate: -180,
+                    }}
+                    animate={{
+                      rotate: inView3 ? 0 : -180,
+                      transition: {
+                        type: "spring",
+                      },
+                    }}
                     className="w-full"
                     src="./btn-wavy-black.webp"
                     alt="img"
@@ -226,6 +256,8 @@ function Home_Slider(props: any) {
                         dragConstraints={{ left: 0, right: 0 }}
                         dragElastic={1}
                         onDragEnd={dragEndHandler}
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
                         className="absolute flex flex-col gap-[20px] w-full h-full"
                       >
                         <h1 className="text-start max-[750px]:flex text-text_royal_green scroll-m-20 text-2xl font-semibold tracking-tight">
@@ -244,26 +276,10 @@ function Home_Slider(props: any) {
                         </div>
                       </motion.div>
                     </AnimatePresence>
-
-                    {/* <div>
-                      <p className="max-[750px]:hidden flex">
-                        <span>
-                          0{sliderContent[slideIndex].id} / 0
-                          {sliderContent.length}
-                        </span>
-                      </p>
-                    </div> */}
-
-                    {/* <div className=" hidden xl:w-[80px] max-xl:w-[60px] cursor-pointer max-[750px]:flex">
-                      <img
-                        className="w-full"
-                        src="./btn-wavy-black.webp"
-                        alt="img"
-                      />
-                    </div> */}
                   </div>
                 </section>
               </div>
+
               <p className="hidden max-[750px]:flex items-center gap-[20px]">
                 <span>0{sliderContent[index].id}</span>
                 <span>/</span>
