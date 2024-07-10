@@ -1,6 +1,7 @@
 import React, { SetStateAction, useState, memo } from "react";
 import { AnimatePresence, motion, Variant } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 interface Props {}
 
 interface INav {
@@ -180,6 +181,8 @@ const mobileLinkVars = {
 };
 
 const MobileLinks = ({ nav }: { nav: INav }) => {
+  const pathname = usePathname();
+
   return (
     <motion.ul className="flex items-center gap-[20px] mx-auto min-[1200px]:text-[30px] min-[800px]:text-[27px] min-[500px]:text-[24px] max-[500px]:text-[27px] font-helvetica ">
       <motion.li
@@ -187,9 +190,19 @@ const MobileLinks = ({ nav }: { nav: INav }) => {
         initial="initial"
         animate="open"
         exit="exit"
-        className="cursor-pointer"
+        className="cursor-pointer group relative inline-block"
       >
-        <Link href={nav.link}>{nav.name}</Link>
+        <Link
+          className={`block relative py-2 px-4 transition-colors duration-500 ${
+            pathname === nav.link
+              ? "text-golden_yellow"
+              : "text-off-white hover:text-golden_yellow"
+          }`}
+          href={nav.link}
+        >
+          {nav.name}
+          <span className="absolute bottom-[2px] left-0 w-full h-[2px] bg-golden_yellow scale-x-0 origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left transition-transform duration-500 ease-out"></span>
+        </Link>
       </motion.li>
       {nav.name == "Home" ? (
         <img className="w-[30px]" src="./Star.svg" alt="img" />

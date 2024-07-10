@@ -4,9 +4,12 @@ import { FaXmark } from "react-icons/fa6";
 import { GiHamburgerMenu } from "react-icons/gi";
 import MobileNav from "../mobileNavbar/MobileNav";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [menuState, setMenuState] = useState<boolean>(false);
+
+  const pathname = usePathname();
 
   return (
     <nav className="bg-[#313F38] max-[1200px]:sticky top-0 left-0 z-30 w-full pb-1 border-[1px] border-transparent text-white">
@@ -14,24 +17,87 @@ const Navbar = () => {
         <h2 className="scroll-m-20  text-3xl font-semibold tracking-tight first:mt-2">
           BankHotel
         </h2>
-        <ul className="flex items-center justify-around gap-[15px] w-[50%] font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
-          <li className="cursor-pointer hover:text-golden_yellow transition-all">
+        <ul className="flex items-center justify-around gap-[15px] min-[1220px]-w-[50%] max-[1220px]-w-[62%]  font-helvetica my-6 ml-6 list-none [&>li]:mt-2 min-[1200px]:flex min-[100px]:hidden">
+          {/* <li className="cursor-pointer hover:text-golden_yellow transition-all">
             <Link href="/"> HOME</Link>
+          </li> */}
+          <li className="cursor-pointer group relative inline-block">
+            <Link
+              href="/"
+              className={`block relative py-2 px-4 transition-colors duration-500 ${
+                pathname === "/"
+                  ? "text-golden_yellow"
+                  : "text-off-white hover:text-golden_yellow"
+              }`}
+            >
+              HOME
+              <span className="absolute bottom-[2px] left-0 w-full h-[2px] bg-golden_yellow scale-x-0 origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left transition-transform duration-500 ease-out"></span>
+            </Link>
           </li>
-          <li className="cursor-pointer hover:text-golden_yellow">
-            <Link href="/about"> ABOUT </Link>
+          <li className="cursor-pointer group relative inline-block">
+            <Link
+              href="/about"
+              className={`block relative py-2 px-4 transition-colors duration-500 ${
+                pathname === "/about"
+                  ? "text-golden_yellow"
+                  : "text-off-white hover:text-golden_yellow"
+              }`}
+            >
+              ABOUT
+              <span className="absolute bottom-[2px] left-0 w-full h-[2px] bg-golden_yellow scale-x-0 origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left transition-transform duration-500 ease-out"></span>
+            </Link>
           </li>
-          <li className="cursor-pointer hover:text-golden_yellow">
-            <Link href="/rooms"> ROOMS </Link>{" "}
+          <li className="cursor-pointer group relative inline-block">
+            <Link
+              href="/rooms"
+              className={`block relative py-2 px-4 transition-colors duration-500 ${
+                pathname === "/rooms"
+                  ? "text-golden_yellow"
+                  : "text-off-white hover:text-golden_yellow"
+              }`}
+            >
+              ROOMS
+              <span className="absolute bottom-[2px] left-0 w-full h-[2px] bg-golden_yellow scale-x-0 origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left transition-transform duration-500 ease-out"></span>
+            </Link>
           </li>
-          <li className="cursor-pointer hover:text-golden_yellow">
-            <Link href="/facility"> FACILITIES </Link>
+          <li className="cursor-pointer group relative inline-block">
+            <Link
+              href="/facility"
+              className={`block relative py-2 px-4 transition-colors duration-500 ${
+                pathname === "/facility"
+                  ? "text-golden_yellow"
+                  : "text-off-white hover:text-golden_yellow"
+              }`}
+            >
+              FACILITIES
+              <span className="absolute bottom-[2px] left-0 w-full h-[2px] bg-golden_yellow scale-x-0 origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left transition-transform duration-500 ease-out"></span>
+            </Link>
           </li>
-          <li className="cursor-pointer hover:text-golden_yellow">
-            <Link href="./booking"> BOOK A ROOM </Link>
+          <li className="cursor-pointer group relative inline-block">
+            <Link
+              href="./booking"
+              className={`block relative py-2 px-4 transition-colors duration-500 ${
+                pathname === "/booking"
+                  ? "text-golden_yellow"
+                  : "text-off-white hover:text-golden_yellow"
+              }`}
+            >
+              BOOK A ROOM
+              <span className="absolute bottom-[2px] left-0 w-full h-[2px] bg-golden_yellow scale-x-0 origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left transition-transform duration-500 ease-out"></span>
+            </Link>
           </li>
-          <li className="cursor-pointer hover:text-golden_yellow">
-            <Link href="./contacts">CONTACTS </Link>
+          <li className="cursor-pointer group relative inline-block">
+            <Link
+              href="./contacts"
+              className={`block relative py-2 px-4 transition-colors duration-500 ${
+                pathname === "/contacts"
+                  ? "text-golden_yellow"
+                  : "text-off-white hover:text-golden_yellow"
+              }`}
+            >
+              CONTACTS
+              <span className="absolute bottom-[2px] left-0 w-full h-[2px] bg-golden_yellow scale-x-0 origin-bottom-right group-hover:scale-x-100 group-hover:origin-bottom-left transition-transform duration-500 ease-out"></span>
+            </Link>
           </li>
         </ul>
         <p className="font-helvetica [&:not(:first-child)]:mt-2 sm:hidden min-[1200px]:flex min-[100px]:hidden">
