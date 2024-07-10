@@ -1,10 +1,9 @@
 "use client";
 import React, { memo, useState } from "react";
-import { FaXmark } from "react-icons/fa6";
-import { GiHamburgerMenu } from "react-icons/gi";
+
 import MobileNav from "../mobileNavbar/MobileNav";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [menuState, setMenuState] = useState<boolean>(false);
@@ -117,10 +116,10 @@ const Navbar = () => {
             >
               <g
                 fill="white"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="m7.5 7.5 6 6" />
                 <path d="m13.5 7.5-6 6" />

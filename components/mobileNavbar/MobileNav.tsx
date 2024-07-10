@@ -1,8 +1,7 @@
-import React, { SetStateAction, useState, memo } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion, Variant } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-interface Props {}
 
 interface INav {
   name: string;
@@ -114,10 +113,10 @@ const MobileNav = React.memo((props: IMenuState) => {
               >
                 <g
                   fill="white"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="m7.5 7.5 6 6" />
                   <path d="m13.5 7.5-6 6" />
