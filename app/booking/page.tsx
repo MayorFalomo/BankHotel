@@ -55,18 +55,21 @@ const page = (props: Props) => {
       src="./space-copenhagen.webp"
       onDragStart={handleDragStart}
       role="presentation"
+      alt="img"
     />,
     <img
       className="h-full object-cover object-bottom w-full"
       src="./room-image.webp"
       onDragStart={handleDragStart}
       role="presentation"
+      alt="img"
     />,
     <img
       className="h-full object-cover object-bottom w-full"
       src="./3mirror-2.png"
       onDragStart={handleDragStart}
       role="presentation"
+      alt="img"
     />,
   ];
 

@@ -43,12 +43,12 @@ const FacilityHero = (props: Props) => {
               <img
                 className="w-[70px] absolute top-[-60px] left-[-70px]  max-[690px]:hidden"
                 src="../label.webp"
-                alt=""
+                alt="img"
               />
               <img
                 className="w-[70px] absolute top-[-60px] right-0 hidden max-[690px]:flex "
                 src="../label-logo.webp"
-                alt=""
+                alt="img"
               />
             </div>
           </div>
@@ -56,7 +56,7 @@ const FacilityHero = (props: Props) => {
         <img
           className="absolute top-[0px] left-[0px] z-[1]"
           src="../grouped2.svg"
-          alt=""
+          alt="img"
         />
       </div>
     </div>
