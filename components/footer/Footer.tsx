@@ -15,7 +15,7 @@ const Footer: React.FC = (props: Props) => {
     >
       <div className="min-[680px]:w-[95%] w-[95%] mx-auto mt-[50px] pb-[50px] flex items-start justify-start gap-[50px] flex-wrap ">
         <div className="flex flex-col items-start gap-[10px] max-[480px]:hidden">
-          <h3 className="text-xl">ABOUT US</h3>
+          <p className="text-xl">ABOUT US</p>
           <p className="leading-6 font-helvetica w-[280px]">
             The five-star hotel in a beautiful European city with a modern
             restaurant, conference-hall, and art-bar.{" "}
@@ -26,7 +26,7 @@ const Footer: React.FC = (props: Props) => {
           </p>
         </div>
         <div className="flex flex-col items-start gap-[10px] max-[480px]:hidden">
-          <h3 className="text-xl">NEWS</h3>
+          <p className="text-xl">NEWS</p>
           <p className="leading-6 w-[270px] font-helvetica">
             Sign up to our newsletter not to miss exclusive offers and
             information about the upcoming events.{" "}
@@ -44,7 +44,7 @@ const Footer: React.FC = (props: Props) => {
         </div>
         <div className="flex flex-col gap-[40px] max-[480px]:hidden">
           <div className="flex flex-col gap-[20px] max-[480px]:hidden">
-            <h3 className="text-xl">SOCIAL</h3>
+            <p className="text-xl">SOCIAL</p>
 
             <ul className="flex items-center gap-[30px]">
               <li className="cursor-pointer">FACEBOOK </li>
@@ -53,10 +53,7 @@ const Footer: React.FC = (props: Props) => {
             </ul>
           </div>
           <p className="opacity-[0.4]  mt-6 font-helvetica">
-            Designed by{" "}
-            <a target="_blank" href="https://www.figma.com/@future2">
-              Andrew Vynarchyk
-            </a>{" "}
+            Designed by <a>Andrew Vynarchyk</a>{" "}
           </p>
         </div>
         <div className="w-full max-[480px]:block hidden">

@@ -69,9 +69,9 @@ const About_us = (props: Props) => {
                     )}
                   </div>
                   <div ref={ref2} className="text-white_text">
-                    <h2 className="font-miracle scroll-m-20 text-2xl font-semibold tracking-[.10em]">
+                    <p className="font-miracle scroll-m-20 text-2xl font-semibold tracking-[.10em]">
                       High Quality{" "}
-                    </h2>
+                    </p>
                     {/* <TextMask
                       inview={inView2}
                       text=""

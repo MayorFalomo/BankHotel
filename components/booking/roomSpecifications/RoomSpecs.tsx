@@ -89,7 +89,7 @@ const RoomSpecs = (props: Props) => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-3 min-[600px]:w-[70%] m-auto max-[500px]:my-[20px] max-[600px]:w-[90%] overflow-auto font-helvetica "
+          className="space-y-3 min-[600px]:w-[70%] m-auto max-[500px]:my-[20px] max-[600px]:w-[90%] py-2 overflow-auto font-helvetica "
         >
           <h2 className="scroll-m-20 text-2xl text-text_royal_green font-helvetica font-semibold tracking-tight">
             {" "}
