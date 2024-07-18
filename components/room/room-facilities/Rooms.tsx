@@ -43,7 +43,7 @@ const RoomFacilities = (props: Props) => {
 
         <div className="flex flex-col gap-[30px] 2xl:w-[500px] min-[890px]:w-[400px]">
           <div className="w-full">
-            <img src="../3mirror-2.png" alt="webp" />
+            <img src="../3mirror-2.png" alt="img" />
           </div>
           <div ref={ref1} className="relative max-[890px]:w-[80%] mt-[20px]">
             <FadeInText

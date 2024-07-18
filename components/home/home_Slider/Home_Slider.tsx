@@ -190,6 +190,7 @@ function Home_Slider(props: any) {
                       duration: 1,
                       ease: [0.56, 0.03, 0.12, 1.04],
                     }}
+                    alt="img"
                   />
                 </div>
                 <div
